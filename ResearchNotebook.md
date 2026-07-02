@@ -28,3 +28,17 @@ Date: 6/28/2026
 4. Meetings would be Monday Zoom 8am, Thursday in Person
 5. Preferred contact: Email
 6. Until the next meeting I will checl out the Mandel code and annote it to my understanding
+
+### Wireless Meeting 1
+Date: 7/1/2026
+1. Discussed where the server could be placed and resolved concerns regarding the universal power supply
+2. The server will have to be connected to a seperate power supply from the server rack to prevent already overloaded ups from going down
+3. Discussed networking solutions for remote access
+4. Wireless facilities/network officer helped locate unused port and said they would help with setting up remote access
+5. Spoke with wireless leadership and got them onboard with the idea
+   
+### C Coding Review 
+Date: 7/2/2026
+1. Completed a 6 hour youtube course on C programming as a review
+
+
