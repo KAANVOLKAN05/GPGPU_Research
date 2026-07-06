@@ -55,3 +55,12 @@ Date: 7/6/2026
 3. Had a chat with the club ethernet administrator 
 4. Tried hostname -I and got non club network ID
 5. I tried a couple more things, but then we decided to chat on Monday evening to connect to the internet and later set up remote access. 
+
+### Meeting Notes
+Date: 7/6/2026
+1. July 16 the builder of the computer will come
+
+### Daily Work Note:
+Date: 7/6/2026
+1. Found a resource that can help with multigpu work [CUDA_Multi_GPU_Resource]("https://docs.nvidia.com/cuda/cuda-programming-guide/03-advanced/multi-gpu-systems.html")
+2. If hard to understand, first read [GPU_Structure]("https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/programming-model.html")
