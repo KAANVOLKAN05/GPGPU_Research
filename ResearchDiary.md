@@ -60,7 +60,27 @@ Date: 7/6/2026
 Date: 7/6/2026
 1. July 16 the builder of the computer will come
 
-### Daily Work Note:
+### Daily Work Note
 Date: 7/6/2026
 1. Found a resource that can help with multigpu work [CUDA_Multi_GPU_Resource]("https://docs.nvidia.com/cuda/cuda-programming-guide/03-advanced/multi-gpu-systems.html")
 2. If hard to understand, first read [GPU_Structure]("https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/programming-model.html")
+
+### Following the Book
+Date: 7/6/2026
+1. Check that GPU capability is above 2.0 for the book, teslak80 is 3.7
+2. Find and copy a writable copy of the CUDA samples
+3. Attempted to build Samples/5_Simulations/nbody , failed due to "cannot find lglut"
+4. Attempted to build and run Samples/1_Utilities/bandwidthTest , succeeded.
+
+### Fixing the internet connection
+Date: 7/7/2026
+
+1. Upon 3 hours of futile attempts on fixing the internet connection, which showed us on the wrong IP adress, after deleting configuration, redowloading them, asking people, calling friends and trying with ai, I fixed it by changing the port on the computer. 
+2. After this I finnaly cloned my fork of the mandelbrot to the computer 
+
+### Following the Book
+Date: 7/7/2026
+1. Created and built dist_v1 and dist_v2 applications mentioned in the book
+2. Played with the debugging tool cuda-gbd but I still have quite some ways to go with it
+3. Moved the following along the book directory under my GPGPU_Research github repo
+4. Added a readme explaining it
