@@ -60,7 +60,14 @@ Date: 7/6/2026
 Date: 7/6/2026
 1. July 16 the builder of the computer will come
 
-### Daily Work Note:
+### Daily Work Note
 Date: 7/6/2026
 1. Found a resource that can help with multigpu work [CUDA_Multi_GPU_Resource]("https://docs.nvidia.com/cuda/cuda-programming-guide/03-advanced/multi-gpu-systems.html")
 2. If hard to understand, first read [GPU_Structure]("https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/programming-model.html")
+
+### Following the Book
+Date: 7/6/2026
+1. Check that GPU capability is above 2.0 for the book, teslak80 is 3.7
+2. Find and copy a writable copy of the CUDA samples
+3. Attempted to build Samples/5_Simulations/nbody , failed due to "cannot find lglut"
+4. Attempted to build and run Samples/1_Utilities/bandwidthTest , succeeded.
