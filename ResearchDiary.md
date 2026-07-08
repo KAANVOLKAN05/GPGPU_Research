@@ -72,6 +72,11 @@ Date: 7/6/2026
 3. Attempted to build Samples/5_Simulations/nbody , failed due to "cannot find lglut"
 4. Attempted to build and run Samples/1_Utilities/bandwidthTest , succeeded.
 
+### Fixing the internet connection
+Date: 7/7/2026
+
+1. Upon 3 hours of futile attempts on fixing the internet connection, which showed us on the wrong IP adress, after deleting configuration, redowloading them, asking people, calling friends and trying with ai, I fixed it by changing the port on the computer. 
+
 ### Following the Book
 Date: 7/7/2026
 1. Created and built dist_v1 and dist_v2 applications mentioned in the book
