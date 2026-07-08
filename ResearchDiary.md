@@ -76,6 +76,7 @@ Date: 7/6/2026
 Date: 7/7/2026
 
 1. Upon 3 hours of futile attempts on fixing the internet connection, which showed us on the wrong IP adress, after deleting configuration, redowloading them, asking people, calling friends and trying with ai, I fixed it by changing the port on the computer. 
+2. After this I finnaly cloned my fork of the mandelbrot to the computer 
 
 ### Following the Book
 Date: 7/7/2026
