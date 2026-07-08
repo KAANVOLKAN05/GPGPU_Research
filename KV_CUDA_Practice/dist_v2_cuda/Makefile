@@ -9,4 +9,4 @@ main.exe: main.o kernel.o
 main.o: main.cpp kernel.h
 	$(NVCC) $(NVCC_FLAGS) -c $< -o $@
 kernel.o: kernel.cu kernel.h
-	$(NVCC) $(NCVV_FLAGS) -c $< -o $@
+	$(NVCC) $(NVCC_FLAGS) -c $< -o $@
