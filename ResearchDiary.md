@@ -71,3 +71,10 @@ Date: 7/6/2026
 2. Find and copy a writable copy of the CUDA samples
 3. Attempted to build Samples/5_Simulations/nbody , failed due to "cannot find lglut"
 4. Attempted to build and run Samples/1_Utilities/bandwidthTest , succeeded.
+
+### Following the Book
+Date: 7/7/2026
+1. Created and built dist_v1 and dist_v2 applications mentioned in the book
+2. Played with the debugging tool cuda-gbd but I still have quite some ways to go with it
+3. Moved the following along the book directory under my GPGPU_Research github repo
+4. Added a readme explaining it
