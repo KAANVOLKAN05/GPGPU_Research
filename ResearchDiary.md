@@ -110,10 +110,17 @@ One of these projects, nbody, demonstrates the interaction of n bodies that are 
 While trying to run this program, I got the following error: 
 
 > Windowed mode
+> 
 > Simulation data stored in video memory
+>
 > Single precision floating point simulation
+> 
 > 1 Devices used for simulation
+> 
 GPU Device 0: "Kepler" with compute capability 3.7
 
+
+
 > Compute 3.7 CUDA device: [Tesla K80]
+> 
 CUDA error at bodysystemcuda_impl.h:186 code=999(cudaErrorUnknown) "cudaGraphicsGLRegisterBuffer(&m_pGRes[i], m_pbo[i], cudaGraphicsMapFlagsNone)"
