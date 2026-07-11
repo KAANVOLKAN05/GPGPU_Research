@@ -103,10 +103,12 @@ Date 7/9/2026
 ### Solution to nbody sample problem
 Date: 7/11/2026
 
+#### Backround info
 With the CUDA instillations prior to 11.7, the instillation includes a number of samples projects to run on the GPU.
 
 One of these projects, nbody, demonstrates the interaction of n bodies that are gravitationally coupled to each other.
 
+#### The error code
 While trying to run this program, I got the following error: 
 
 > Windowed mode
@@ -124,3 +126,24 @@ While trying to run this program, I got the following error:
 > Compute 3.7 CUDA device: [Tesla K80]
 > 
 > CUDA error at bodysystemcuda_impl.h:186 code=999(cudaErrorUnknown) "cudaGraphicsGLRegisterBuffer(&m_pGRes[i], m_pbo[i], cudaGraphicsMapFlagsNone)"
+
+#### Investigative steps
+I first took a look at bodysystemcuda_impl.h:186 which was a commented line that had nothing followed by a math equation that was just a plain equation. 
+
+One of the solutions was running the program with the -cpu flag which runs the entire program on the cpu to compare with the GPU speed.
+
+Another solution was running it without the graphics display, whixch worked just fine.
+
+Upon looking at the forums I found people who plugged the display to their actual graphics card which solved the problem, "In my case, I have two GPUs (one of them is an internal GPU) and my screen is plugged to the internal one. When I plugged my screen to the other one, error is vanished." We do not have a graphical dedicated slot.
+
+Also one person mentiopn having solved it with this, "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia + (command)". I do not understand what this does so i did not attempt to use it.
+
+#### Actual solution
+
+Adding the flag -hostmem fixed the issue. The porgram runs on the GPU but the memory is transferred to the CPU afterwards with this flag. Since we are running the graphics of our computer on the CPU, I believe this transfer allowed the computer to be able to run the display portion of the program very well.
+
+#### Take Away
+
+Add the -hostmem flag for sample programs when open gl is involved. 
+
+
