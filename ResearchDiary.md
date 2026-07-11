@@ -117,10 +117,10 @@ While trying to run this program, I got the following error:
 > 
 > 1 Devices used for simulation
 > 
-GPU Device 0: "Kepler" with compute capability 3.7
+> GPU Device 0: "Kepler" with compute capability 3.7
 
 
 
 > Compute 3.7 CUDA device: [Tesla K80]
 > 
-CUDA error at bodysystemcuda_impl.h:186 code=999(cudaErrorUnknown) "cudaGraphicsGLRegisterBuffer(&m_pGRes[i], m_pbo[i], cudaGraphicsMapFlagsNone)"
+> CUDA error at bodysystemcuda_impl.h:186 code=999(cudaErrorUnknown) "cudaGraphicsGLRegisterBuffer(&m_pGRes[i], m_pbo[i], cudaGraphicsMapFlagsNone)"
