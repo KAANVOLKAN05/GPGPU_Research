@@ -98,4 +98,13 @@ Date 7/9/2026
 3. Try telling glut to use the right gpu
 4. We are emailing Ecart to inquire about a dedicated graphincs card
 5. Try to see which cpu I am using. 
-6. 
+
+
+### Solution to nbody sample problem
+Date: 7/11/2026
+
+With the CUDA instillations prior to 11.7, the instillation includes a number of samples projects to run on the GPU.
+
+One of these projects, nbody, demonstrates the interaction of n bodies that are gravitationally coupled to each other.
+
+While trying to run this program, I got the following error: 
