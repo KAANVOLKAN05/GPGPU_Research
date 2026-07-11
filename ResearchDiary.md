@@ -147,3 +147,12 @@ Adding the flag -hostmem fixed the issue. The porgram runs on the GPU but the me
 Add the -hostmem flag for sample programs when open gl is involved. 
 
 
+### Figuring out the CPU being used
+Date: 7/11/2026
+
+1. Downloaded Library htop
+2. Downloaded cmatrix
+3. Neofetch
+
+Identified 28 cores with htop. Found out the cpu model to be "Intel Xeon E-52626880 v4" with neofetch. This CPU model has 14 cores. When neofetch showed which cores were being used, it showed all 28 approximatly uniformly used, which may indicate that both are used. An interesting aside is that when running the nbody program with the cpu flag, only a single core is used. 
+
