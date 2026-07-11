@@ -84,3 +84,18 @@ Date: 7/7/2026
 2. Played with the debugging tool cuda-gbd but I still have quite some ways to go with it
 3. Moved the following along the book directory under my GPGPU_Research github repo
 4. Added a readme explaining it
+
+### Mandelbrot and Book
+Date: 7/8/2026
+1. Finished until chapter 4 
+2. Compiled the mandelbrot (cmake needed an extra flag and make was giving minor errors)
+3. I was able to select device and attempted to divide the problem into 2
+
+### Meeting Notes
+Date 7/9/2026
+1. No need to get a seperate enviorment
+2. I will email him the error code that came up with the open gl nbody
+3. Try telling glut to use the right gpu
+4. We are emailing Ecart to inquire about a dedicated graphincs card
+5. Try to see which cpu I am using. 
+6. 
