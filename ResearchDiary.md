@@ -174,12 +174,17 @@ This is because we were creating that lamnda plane withh NX*NY, which is too big
 > Segmentation fault (core dumped)
 
 ### Color Pallate Changes
-
+Date: 7/12/2026
 1. Impplemented the smooth iteraton number formula from https://iquilezles.org/articles/msetsmooth/
 2. Te results were very bad due to our color mapping
 3. After a lot of manual efforts to get a nive color map, I asked GPT to copy the color pallet this person uses in their animation https://www.shadertoy.com/view/4df3Rn
 4. Couple additonal things are that the max number is set to 250 fr the number of colors in the lookup table, this could be changed for sure
 5. If the number of iterations to escape is equal to the max nummber which means it could not escape, the lookup table index is set to -1 whic is defined to be black while the table is being set.
 
+
+### CPU Rendering issue
+Date: 7/12/2026
+
+1. To mke the Mandelbrot set more beatifull, a higher window size such as 2000 by 2000 is neccecry. Previsously the limit was 800 by 800 due to the segmentation fault, but after solving that, i tried going up to 5000 which made wonderfull graphs. BUT there is a problem. The Rendering of the Screen takes over 30 second per frame. I am alost sure this is purely caused by the CPU trying to render it because changing the iteration count from 32000 to 320 does not change the time between frames noticably, which means all the latency comes from the CPU. Well, it could also be from the time it takes the GPU to copy the data to the CPU too, which wold not have been a problem if we were directly rendering from the GPU. 
 
 
