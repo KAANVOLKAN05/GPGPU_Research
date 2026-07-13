@@ -157,12 +157,12 @@ Date: 7/11/2026
 Identified 28 cores with htop. Found out the cpu model to be "Intel Xeon E-52626880 v4" with neofetch. This CPU model has 14 cores. When neofetch showed which cores were being used, it showed all 28 approximatly uniformly used, which may indicate that both are used. An interesting aside is that when running the nbody program with the cpu flag, only a single core is used. 
 
 ### Proper Parralellization
-Date: 7/12/2026
+Date: 7/11/2026
 
 I changed the Mandelbrot code to run in parallel on 8 GPUs. I made it sufficently modular so it can work with different systems with different numbers of GPU. Another part of this modularity was a header file I developped by copying from the multigpu example given in one of the NVIDIA samples. This file just inlcudes a struct that stores variables that CPU needs to launch each GPU. Perhaps I could write a better explanation of all the changes in a seperate documentation. There is also still some shortcuts I need to cleanup. 
 
 ### The Segmentation Error (Core Dumped)
-Date:7/12/2026
+Date:7/11/2026
 
 Below was the error you and I got when try to run the simulation with NY and NX above 800. 
 This is because we were creating that lamnda plane withh NX*NY, which is too big for the stack. When instead we decleare some pointers to them, then allocate them to the pinned host memory(which is done by cudaMallocHost() and easies transfer to the GPU and is in the heap I believe), it works.  
@@ -172,5 +172,14 @@ This is because we were creating that lamnda plane withh NX*NY, which is too big
 > xmin = -2.000000e+00, xmax = 1.000000e+00, ymin = -1.500000e+00, ymax = 1.500000e+00, dx = 3.003003e-03, dy = 3.003003e-03
 > Compute initial Mandelbrot ... 
 > Segmentation fault (core dumped)
+
+### Color Pallate Changes
+
+1. Impplemented the smooth iteraton number formula from https://iquilezles.org/articles/msetsmooth/
+2. Te results were very bad due to our color mapping
+3. After a lot of manual efforts to get a nive color map, I asked GPT to copy the color pallet this person uses in their animation https://www.shadertoy.com/view/4df3Rn
+4. Couple additonal things are that the max number is set to 250 fr the number of colors in the lookup table, this could be changed for sure
+5. If the number of iterations to escape is equal to the max nummber which means it could not escape, the lookup table index is set to -1 whic is defined to be black while the table is being set.
+
 
 
