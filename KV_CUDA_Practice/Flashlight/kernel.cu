@@ -10,6 +10,7 @@ void distanceKernel(uchar4 *d_out, int w, int h, int2 pos){
     const int c = blockIdx.x*blockDim.x + threadIdx.x;
     const int r = blockIdx.y*blockDim.y + threadIdx.y; 
     if ((c >= w) || (r >= h)) return;
+    const i = c + r * w;
     const int dist = sqrtf((c - pos.x) * (c - pos.x) + (r - pos.x) * (r - pos.x));
     
     const unsigned char intensity = clip(255-d);
