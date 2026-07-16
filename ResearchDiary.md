@@ -210,6 +210,11 @@ Date:7/14/2026
 
 ### More colors
 1. I implemented the log log equation to the cpu
-2. I also tried to do some work on bettering the color pallaate but it was very bad. I seem to not be able to get a nice graph. 
+2. I also tried to do some work on bettering the color pallaate but it was very bad. I seem to not be able to get a nice graph.
+
+### Meeting Notes:
+
+1. In 2 weeks, I join the meeting for the turbiditiy stuff
+2. 
 
 
