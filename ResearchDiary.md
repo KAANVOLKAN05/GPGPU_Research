@@ -185,6 +185,31 @@ Date: 7/12/2026
 ### CPU Rendering issue
 Date: 7/12/2026
 
-1. To mke the Mandelbrot set more beatifull, a higher window size such as 2000 by 2000 is neccecry. Previsously the limit was 800 by 800 due to the segmentation fault, but after solving that, i tried going up to 5000 which made wonderfull graphs. BUT there is a problem. The Rendering of the Screen takes over 30 second per frame. I am alost sure this is purely caused by the CPU trying to render it because changing the iteration count from 32000 to 320 does not change the time between frames noticably, which means all the latency comes from the CPU. Well, it could also be from the time it takes the GPU to copy the data to the CPU too, which wold not have been a problem if we were directly rendering from the GPU. 
+1. To mke the Mandelbrot set more beatifull, a higher window size such as 2000 by 2000 is neccecry. Previsously the limit was 800 by 800 due to the segmentation fault, but after solving that, i tried going up to 5000 which made wonderfull graphs. BUT there is a problem. The Rendering of the Screen takes over 30 second per frame. I am alost sure this is purely caused by the CPU trying to render it because changing the iteration count from 32000 to 320 does not change the time between frames noticably, which means all the latency comes from the CPU. Well, it could also be from the time it takes the GPU to copy the data to the CPU too, which wold not have been a problem if we were directly rendering from the GPU.
+
+### Flashlight program and all open GL applications
+Date:7/14/2026
+
+1. I failed to make them work on my computer.
+
+> /usr/local/cuda/bin/nvcc -g -G -Xcompiler "-Wall
+> -Wno-deprecated-declarations" -I/usr/local/cuda/samples/common/inc -c
+> main.cpp -o main.o
+> /usr/local/cuda/bin/nvcc -g -G -Xcompiler "-Wall
+> -Wno-deprecated-declarations" -c kernel.cu -o kernel.o
+> /usr/local/cuda/bin/nvcc main.o kernel.o -o main.exe
+> -L/usr/local/cuda/samples/common/lib/linux/x86_64 -lglut -lGL -lGLU
+> -lGLEW
+> /usr/bin/ld: /usr/local/cuda/samples/common/lib/linux/x86_64/libGLEW.a(glew.o):
+> relocation R_X86_64_32S against `.rodata' can not be used when making
+> a PIE object; recompile with -fPIE
+> /usr/bin/ld: final link failed
+> collect2: error: ld returned 1 exit status
+> make: *** [Makefile:17: main.exe] Error 1
+2. Turns out the reson behind this is some linux security change, I then tried following ai instructions to debug this by deleting the -L line and manually installing some libraries, it worked but I just got a black secreen.
+
+### More colors
+1. I implemented the log log equation to the cpu
+2. I also tried to do some work on bettering the color pallaate but it was very bad. I seem to not be able to get a nice graph. 
 
 
