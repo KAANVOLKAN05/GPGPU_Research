@@ -215,6 +215,6 @@ Date:7/14/2026
 ### Meeting Notes:
 
 1. In 2 weeks, I join the meeting for the turbiditiy stuff
-2. 
+2. Use LLSPCI to locate which GPU is the weak one
 
 
