@@ -222,4 +222,7 @@ Date 7/16/2026
 1. Cleaned up code and made it such that it detects number of GPUs in the system and uses the max amount
 2. Added flag -G which allows you to specify number of GPUs you want to use and gives an error if you specify the wrong things.
 
+### Idea--> Autozoom
+
+
 
