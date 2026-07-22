@@ -229,5 +229,24 @@ Date 7/16/2026
 3. Maybe AutoZoom
 4. Clean UP
 
+### Workday
+Date :7/21/2026
+1. Cleaned up Code and comments
+2. Moved from using LAMR LAMI to using GPU indexing
+3. Fixed color scheme
+4. Modified code such that itteration number increases via zoom
+5. Sped code up by vectorizing the graph udater
+### Done with the Mandelbrot submitted request
+There is a probolem when no GPU flag is passed but that is a issue we can adress later on.
 
+### Downloading MCX
+Date: 7/22/2026
+Downloaded mcx via the following steps
+1. Go to https://mcx.space/
+2. In the mcx home page click the orange download button titled "Download v2025.10"
+3. It takes you to the download page https://mcx.space/wiki/?Get
+4. I clicked the top left titled MCX v2025.10
+5. Takes me to the page https://mcx.space/wiki/?keywords=register&tool=mcx&ref=mcxwiki
+6. Here you an register or not, which takes you to aother downloadd page https://sourceforge.net/projects/mcx/files/mc
+x%20binary/. Here I choose 2025.10 (Kilo-Kelvin) and downloaded the version for linux.
 
