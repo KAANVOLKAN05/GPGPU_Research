@@ -185,6 +185,68 @@ Date: 7/12/2026
 ### CPU Rendering issue
 Date: 7/12/2026
 
-1. To mke the Mandelbrot set more beatifull, a higher window size such as 2000 by 2000 is neccecry. Previsously the limit was 800 by 800 due to the segmentation fault, but after solving that, i tried going up to 5000 which made wonderfull graphs. BUT there is a problem. The Rendering of the Screen takes over 30 second per frame. I am alost sure this is purely caused by the CPU trying to render it because changing the iteration count from 32000 to 320 does not change the time between frames noticably, which means all the latency comes from the CPU. Well, it could also be from the time it takes the GPU to copy the data to the CPU too, which wold not have been a problem if we were directly rendering from the GPU. 
+1. To mke the Mandelbrot set more beatifull, a higher window size such as 2000 by 2000 is neccecry. Previsously the limit was 800 by 800 due to the segmentation fault, but after solving that, i tried going up to 5000 which made wonderfull graphs. BUT there is a problem. The Rendering of the Screen takes over 30 second per frame. I am alost sure this is purely caused by the CPU trying to render it because changing the iteration count from 32000 to 320 does not change the time between frames noticably, which means all the latency comes from the CPU. Well, it could also be from the time it takes the GPU to copy the data to the CPU too, which wold not have been a problem if we were directly rendering from the GPU.
 
+### Flashlight program and all open GL applications
+Date:7/14/2026
+
+1. I failed to make them work on my computer.
+
+> /usr/local/cuda/bin/nvcc -g -G -Xcompiler "-Wall
+> -Wno-deprecated-declarations" -I/usr/local/cuda/samples/common/inc -c
+> main.cpp -o main.o
+> /usr/local/cuda/bin/nvcc -g -G -Xcompiler "-Wall
+> -Wno-deprecated-declarations" -c kernel.cu -o kernel.o
+> /usr/local/cuda/bin/nvcc main.o kernel.o -o main.exe
+> -L/usr/local/cuda/samples/common/lib/linux/x86_64 -lglut -lGL -lGLU
+> -lGLEW
+> /usr/bin/ld: /usr/local/cuda/samples/common/lib/linux/x86_64/libGLEW.a(glew.o):
+> relocation R_X86_64_32S against `.rodata' can not be used when making
+> a PIE object; recompile with -fPIE
+> /usr/bin/ld: final link failed
+> collect2: error: ld returned 1 exit status
+> make: *** [Makefile:17: main.exe] Error 1
+2. Turns out the reson behind this is some linux security change, I then tried following ai instructions to debug this by deleting the -L line and manually installing some libraries, it worked but I just got a black secreen.
+
+### More colors
+1. I implemented the log log equation to the cpu
+2. I also tried to do some work on bettering the color pallaate but it was very bad. I seem to not be able to get a nice graph.
+3. Add to the July due list the Multi GPU talking borders. 
+### Meeting Notes:
+
+1. In 2 weeks, I join the meeting for the turbiditiy stuff
+2. Use LLSPCI to locate which GPU is the weak one
+
+### Progress 
+Date 7/16/2026
+1. Cleaned up code and made it such that it detects number of GPUs in the system and uses the max amount
+2. Added flag -G which allows you to specify number of GPUs you want to use and gives an error if you specify the wrong things.
+
+### Meeting Notes:
+
+1. Bring back color bar scale with dynamic range
+2. Fix the Iteration count: The log needs to have minus side while zooming out.
+3. Maybe AutoZoom
+4. Clean UP
+
+### Workday
+Date :7/21/2026
+1. Cleaned up Code and comments
+2. Moved from using LAMR LAMI to using GPU indexing
+3. Fixed color scheme
+4. Modified code such that itteration number increases via zoom
+5. Sped code up by vectorizing the graph udater
+### Done with the Mandelbrot submitted request
+There is a probolem when no GPU flag is passed but that is a issue we can adress later on.
+
+### Downloading MCX
+Date: 7/22/2026
+Downloaded mcx via the following steps
+1. Go to https://mcx.space/
+2. In the mcx home page click the orange download button titled "Download v2025.10"
+3. It takes you to the download page https://mcx.space/wiki/?Get
+4. I clicked the top left titled MCX v2025.10
+5. Takes me to the page https://mcx.space/wiki/?keywords=register&tool=mcx&ref=mcxwiki
+6. Here you an register or not, which takes you to aother downloadd page https://sourceforge.net/projects/mcx/files/mc
+x%20binary/. Here I choose 2025.10 (Kilo-Kelvin) and downloaded the version for linux.
 
