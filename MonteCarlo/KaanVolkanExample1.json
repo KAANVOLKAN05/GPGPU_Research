@@ -14,7 +14,7 @@
     "DoSpecular": false,
     "DebugFlag": "0",
     "SaveDataMask": "5",
-    "OutputFormat": "nii",
+    "OutputFormat": "mc2",
     "OutputType": "F",
     "RNGSeed": 1648335518
   },
