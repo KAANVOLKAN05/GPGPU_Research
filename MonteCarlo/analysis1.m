@@ -20,6 +20,10 @@ disp(size(fluence_rate));
 
 % Coordinates of interest (detector position), +1 is because we are 0 indexed
 
+x_mcx = 29;
+y_mcx = 90;
+z_mcx = 29;
+
 x_idx = x_mcx + 1;
 y_idx = y_mcx + 1;
 z_idx = z_mcx + 1;
