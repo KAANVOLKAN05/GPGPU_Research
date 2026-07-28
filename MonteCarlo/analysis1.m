@@ -31,3 +31,24 @@ z_idx = z_mcx + 1;
 center_rate = fluence_rate(x_idx, y_idx, z_idx, 1);
 
 fprintf("Center fluence rate: %.8e\n", center_rate);
+
+
+% Around the point of interest
+
+radius = 1;
+
+x_range = (x_mcx - radius : x_mcx + radius) + 1;
+y_range = (y_mcx - radius : y_mcx + radius) + 1;
+z_range = (z_mcx - radius : z_mcx + radius) + 1;
+
+region = fluence_rate(x_range, y_range, z_range, 1);
+
+region_mean = mean(region(:));
+region_std  = std(region(:));
+region_min  = min(region(:));
+region_max  = max(region(:));
+
+fprintf("Region mean rate:    %.8e\n", region_mean);
+fprintf("Region standard dev: %.8e\n", region_std);
+fprintf("Region minimum:      %.8e\n", region_min);
+fprintf("Region maximum:      %.8e\n", region_max);

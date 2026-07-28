@@ -1,7 +1,7 @@
 {
   "Session": {
     "ID": "KV_v1",
-    "Photons": 1000,
+    "Photons": 100000,
     "DoMismatch": false,
     "DoAutoThread": true,
     "DoSaveVolume": true,
