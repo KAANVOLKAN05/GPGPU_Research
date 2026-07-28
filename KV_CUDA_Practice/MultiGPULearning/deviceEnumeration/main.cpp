@@ -1,0 +1,17 @@
+#include <cstdio>
+#include <stdlib.h>
+#include <cuda_runtime.h>
+
+
+int main()
+{
+  int deviceCount;
+  cudaGetDeviceCount(&deviceCount);
+  int device;
+  for (device = 0 ; device < deviceCount; ++device){
+    cudaDeviceProp deviceProp;
+    cudaGetDeviceProperties(&deviceProp, device);
+    printf("Device %d hs compute capability %d.%d./n", device, deviceProp.major, deviceProp.minor);
+  }
+  return 1;
+}
