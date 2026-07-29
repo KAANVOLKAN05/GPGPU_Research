@@ -23,7 +23,7 @@ F = fluence(:, :, :, 1);
 Flog = log10(F + eps);
 
 % Only plot voxels above a threshold
-threshold = max(F(:)) * 1e-1;
+threshold = max(F(:)) * 5e-5;
 mask = F >= threshold;
 
 % Build coordinate arrays
@@ -41,8 +41,8 @@ cv = Flog(mask);
 % ----------------------------------------
 figure("visible", "off");
 
-h = scatter3(xv, yv, zv, 6, cv, "filled");
-set(h, "markerfacealpha", 0.25, "markeredgealpha", 0.25);
+h = scatter3(xv, yv, zv, 3, cv, "filled");
+set(h, "markerfacealpha", 0.15, "markeredgealpha", 0.15);
 
 xlabel("x");
 ylabel("y");
