@@ -41,7 +41,8 @@ cv = Flog(mask);
 % ----------------------------------------
 figure("visible", "off");
 
-scatter3(xv, yv, zv, 6, cv, "filled");
+h = scatter3(xv, yv, zv, 6, cv, "filled");
+set(h, "markerfacealpha", 0.25, "markeredgealpha", 0.25);
 
 xlabel("x");
 ylabel("y");
