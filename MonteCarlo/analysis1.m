@@ -28,9 +28,11 @@ x_idx = x_mcx + 1;
 y_idx = y_mcx + 1;
 z_idx = z_mcx + 1;
 
+
+% Variable is named rate but by using the F flag it is already integrated over time, so it is not the rate
 center_rate = fluence_rate(x_idx, y_idx, z_idx, 1);
 
-fprintf("Center fluence rate: %.8e\n", center_rate);
+fprintf("Center fluence: %.8e\n", center_rate);
 
 
 % Around the point of interest
@@ -48,7 +50,7 @@ region_std  = std(region(:));
 region_min  = min(region(:));
 region_max  = max(region(:));
 
-fprintf("Region mean rate:    %.8e\n", region_mean);
+fprintf("Region mean fluence:    %.8e\n", region_mean);
 fprintf("Region standard dev: %.8e\n", region_std);
 fprintf("Region minimum:      %.8e\n", region_min);
 fprintf("Region maximum:      %.8e\n", region_max);
