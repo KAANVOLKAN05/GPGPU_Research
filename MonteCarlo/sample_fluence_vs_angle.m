@@ -24,11 +24,11 @@ clc;
 
 % ---------------- USER SETTINGS ----------------
 
-% Path to the MCX installation.
-mcx_root = fullfile(getenv("HOME"), "MonteCarlo", "mcx");
-
+% This following path will take us to the mcx utils
+mcx_utils = "mcx/utils";
+addpath(mcx_utils);
 % Path to the MCX .mc2 output file.
-mc2_file = fullfile(mcx_root, "bin", "cube60.mc2");
+mc2_file =  "KV_v1.mc2";
 
 % MCX volume dimensions: [Nx, Ny, Nz, Nt].
 % Your current simulation has one time gate.
@@ -46,7 +46,7 @@ source_pos = [29, 0, 29];
 d = 20;
 
 % Angular sampling range and resolution.
-angle_min = -90;
+angle_min = 90;
 angle_max = 90;
 angle_step = 1;
 
@@ -65,8 +65,6 @@ data_file = "fluence_vs_angle.csv";
 
 % ---------------- LOAD MCX DATA ----------------
 
-% Add MCX helper functions, including loadmc2().
-addpath(fullfile(mcx_root, "utils"));
 
 if exist(mc2_file, "file") ~= 2
     error("Could not find MCX output file: %s", mc2_file);
