@@ -261,5 +261,5 @@ x%20binary/. Here I choose 2025.10 (Kilo-Kelvin) and downloaded the version for 
 2. I had to go in and change the selection index to start from 1 and not 0 effectively bypassing that GPU but in the long term it is a problem
 3. I have realized that MCX is also using it
 4. The problem ith mcx can be resolved with specifying the flag  -G '01'
-5.    Hello
+      1. Hello
 
