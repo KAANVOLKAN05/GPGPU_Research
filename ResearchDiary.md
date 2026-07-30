@@ -250,3 +250,14 @@ Downloaded mcx via the following steps
 6. Here you an register or not, which takes you to aother downloadd page https://sourceforge.net/projects/mcx/files/mc
 x%20binary/. Here I choose 2025.10 (Kilo-Kelvin) and downloaded the version for linux.
 
+### Meeting notes
+
+1. Reduce reduncacy by utilizing symetries
+2. Make sure the detector areas are only sensitive on one face
+
+### An interesting problem
+
+1. The monte carlo sim is using the zeroth GPU which is the tiny one we installed, making trhings super slow
+2. I had to go in and change the selection index to start from 1 and not 0 effectively bypassing that GPU but in the long term it is a problem
+3. I have realized that MCX is also using it
+
