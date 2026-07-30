@@ -260,6 +260,5 @@ x%20binary/. Here I choose 2025.10 (Kilo-Kelvin) and downloaded the version for 
 1. The monte carlo sim is using the zeroth GPU which is the tiny one we installed, making trhings super slow
 2. I had to go in and change the selection index to start from 1 and not 0 effectively bypassing that GPU but in the long term it is a problem
 3. I have realized that MCX is also using it
-4. The problem ith mcx can be resolved with specifying the flag  -G '01'
-      1. Hello
+4. The problem ith mcx can be resolved with specifying the flag  -G '01' for more info visit the readme under the montecarlo directory
 
