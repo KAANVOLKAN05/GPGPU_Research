@@ -1,0 +1,338 @@
+{
+  // Session controls how MCX runs the simulation and saves its results.
+  "Session": {
+
+    // Base name used for output files.
+    // For example: cube60.mc2 and cube60.mch.
+    "ID": "cube60",
+
+    // Number of Monte Carlo photon packets to launch.
+    // This is not necessarily the number of physical photons.
+    "Photons": 1000000,
+
+    // false: ignore refractive-index mismatch at material boundaries.
+    // MCX will not apply Fresnel reflection or Snell refraction there.
+    //
+    // Note: refractive index n can still affect photon travel time.
+    "DoMismatch": false,
+
+    // true: let MCX automatically select the CUDA thread count,
+    // block size, and related execution settings.
+    "DoAutoThread": true,
+
+    // true: save the volumetric simulation output.
+    // The actual quantity saved is selected by OutputType below.
+    "DoSaveVolume": true,
+
+    // true: save records for photon packets captured by detectors.
+    //
+    // The name is slightly misleading: this activates detected-photon
+    // output, while SaveDataMask chooses which fields are recorded.
+    "DoPartialPath": true,
+
+    // true: normalize the volumetric result to a unit source.
+    //
+    // This makes simulations with different photon-packet counts
+    // directly comparable, apart from Monte Carlo noise.
+    "DoNormalize": true,
+
+    // false: do not save diffuse reflectance in background voxels
+    // adjacent to the simulated object.
+    "DoSaveRef": false,
+
+    // false: do not save detected-photon exit positions and directions.
+    //
+    // If enabled, this adds the X and V fields to detector output.
+    "DoSaveExit": false,
+
+    // false: do not save each detected packet's random-number state.
+    //
+    // Saved seeds can later be used for photon replay calculations.
+    "DoSaveSeed": false,
+
+    // false: do not save momentum-transfer information.
+    //
+    // This option is primarily used for diffuse correlation spectroscopy
+    // and other calculations involving momentum transfer.
+    "DoDCS": false,
+
+    // false: do not calculate the initial specular reflection that may
+    // occur when a source enters the domain through a refractive boundary.
+    "DoSpecular": false,
+
+    // "0": no debugging output or photon-trajectory debugging.
+    "DebugFlag": "0",
+
+    // Selects the fields saved for each detected photon.
+    //
+    // This is a bit mask:
+    //   1 = D = detector ID
+    //   2 = S = scattering counts in each medium
+    //   4 = P = partial path length in each medium
+    //   8 = M = momentum transfer
+    //  16 = X = exit position
+    //  32 = V = exit direction
+    //  64 = W = initial photon weight
+    //
+    // 5 = 1 + 4, so this saves:
+    //   D: detector ID
+    //   P: partial path lengths
+    //
+    // The more readable equivalent is "DP".
+    "SaveDataMask": "5",
+
+    // Save volumetric data in the legacy MCX .mc2 format.
+    //
+    // An .mc2 file is essentially a raw array of 32-bit floats and
+    // does not contain dimensions or other metadata.
+    "OutputFormat": "mc2",
+
+    // "x" means time-resolved fluence rate.
+    //
+    // Case is ignored, so "x" and "X" mean the same thing.
+    // This is volumetric fluence—not the detector packet count.
+    "OutputType": "x",
+
+    // Initial seed for MCX's random-number generator.
+    //
+    // Keeping the same seed helps make repeated runs reproducible,
+    // especially when the GPU/thread arrangement is also unchanged.
+    "RNGSeed": 1648335518
+  },
+
+  // Defines the simulated photon time window.
+  "Forward": {
+
+    // Simulation start time in seconds.
+    "T0": 0,
+
+    // Simulation end time in seconds.
+    // This is approximately 5 nanoseconds.
+    "T1": 4.99999996961265e-9,
+
+    // Width of each time gate in seconds.
+    // This is also approximately 5 nanoseconds.
+    "Dt": 4.99999996961265e-9
+  },
+
+  // Because (T1 - T0) / Dt = 1, this configuration produces
+  // one time gate covering approximately 0–5 ns.
+
+  // Optode contains optical sources and detectors.
+  "Optode": {
+
+    // Definition of the photon source.
+    "Source": {
+
+      // A pencil source launches photons from one point in one direction.
+      // It has no finite beam width.
+      "Type": "pencil",
+
+      // Source position in grid units: [x, y, z].
+      "Pos": [
+        29, // x coordinate
+        0,  // y coordinate: the source is on the y=0 side
+        29  // z coordinate
+      ],
+
+      // Initial direction: [vx, vy, vz, focal length].
+      "Dir": [
+        0, // no x component
+        1, // points in the positive y direction
+        0, // no z component
+        0  // focal length = 0; collimated launch
+      ],
+
+      // First set of source-specific parameters.
+      //
+      // A pencil source does not use these parameters, so they are zero.
+      "Param1": [
+        0,
+        0,
+        0,
+        0
+      ],
+
+      // Second set of source-specific parameters.
+      //
+      // Also unused by a pencil source.
+      "Param2": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+
+    // List of spherical detector apertures.
+    "Detector": [
+
+      // Detector 1
+      {
+        // Detector-center position in grid units: [x, y, z].
+        "Pos": [
+          29, // x coordinate
+          90, // y coordinate
+          29  // z coordinate
+        ],
+
+        // Detector radius in grid units.
+        // With the default 1 mm grid spacing, this is 1 mm.
+        "R": 1
+      },
+
+      // Detector 2
+      {
+        "Pos": [
+          29, // x coordinate
+          45, // y coordinate
+          59  // z coordinate, near the upper z boundary
+        ],
+
+        // Spherical detector radius in grid units.
+        "R": 1
+      }
+    ]
+  },
+
+  // Shapes constructs the voxelized geometry directly from JSON.
+  "Shapes": [
+
+    {
+      // Documentation-only name for this shape definition.
+      // MCX does not use this value in the simulation.
+      "Name": "cubic60"
+    },
+
+    {
+      // Set the coordinate origin for all subsequent shape commands.
+      "Origin": [
+        0, // x origin
+        0, // y origin
+        0  // z origin
+      ]
+    },
+
+    {
+      // Create the background voxel grid.
+      "Grid": {
+
+        // Fill every voxel in this grid with material label 1.
+        //
+        // Label 1 corresponds to Domain.Media[1].
+        "Tag": 1,
+
+        // Grid dimensions in voxels: [Nx, Ny, Nz].
+        "Size": [
+          60,  // 60 voxels along x
+          120, // 120 voxels along y
+          60   // 60 voxels along z
+        ]
+      }
+    }
+  ],
+
+  // Domain defines the grid coordinate convention and optical properties.
+  "Domain": {
+
+    // true means that the lower corner of the domain is [0, 0, 0].
+    //
+    // Source, detector, and shape coordinates therefore use a
+    // zero-based spatial origin.
+    "OriginType": true,
+
+    // Domain dimensions in voxels: [Nx, Ny, Nz].
+    //
+    // This should agree with Shapes.Grid.Size.
+    "Dim": [
+      60,  // x dimension
+      120, // y dimension
+      60   // z dimension
+    ],
+
+    // Optical-property table.
+    //
+    // The array index corresponds to the voxel tag:
+    //   Media[0] = tag 0/background
+    //   Media[1] = tag 1
+    //   Media[2] = tag 2
+    //
+    // No LengthUnit is specified, so the default is 1 mm per voxel.
+    // Therefore mua and mus are in inverse millimeters, 1/mm.
+    "Media": [
+
+      // Media[0]: background material and space outside the domain.
+      {
+        // Absorption coefficient, μa = 0 mm^-1.
+        // No photon weight is absorbed in this material.
+        "mua": 0,
+
+        // Scattering coefficient, μs.
+        //
+        // 1.19209e-7 mm^-1 is extremely close to zero, so this
+        // material is effectively non-scattering.
+        "mus": 1.19209289550781e-7,
+
+        // Scattering anisotropy factor.
+        //
+        // g = 1 represents perfectly forward scattering, although it
+        // has almost no effect here because mus is nearly zero.
+        "g": 1,
+
+        // Refractive index of the background material.
+        "n": 1
+      },
+
+      // Media[1]: material assigned to every voxel by Grid.Tag = 1.
+      {
+        // Absorption coefficient, μa ≈ 0.005 mm^-1.
+        //
+        // The absorption-only characteristic distance is:
+        // 1 / μa ≈ 200 mm.
+        "mua": 0.00499999988824129,
+
+        // Scattering coefficient, μs = 0.1 mm^-1.
+        //
+        // The average distance between scattering events is:
+        // 1 / μs = 10 mm.
+        "mus": 0.1,
+
+        // Anisotropy factor, g ≈ 0.01.
+        //
+        // This is nearly isotropic scattering:
+        // there is only a very small forward preference.
+        //
+        // It is not a scattering angle in radians.
+        "g": 0.00999999977648258,
+
+        // Refractive index of this material.
+        //
+        // Because DoMismatch is false, MCX will not apply Fresnel
+        // reflection or Snell refraction at its boundaries.
+        // The index can still affect photon propagation time.
+        "n": 1.3700000047683716
+      },
+
+      // Media[2]: a second possible material.
+      {
+        // Absorption coefficient, μa ≈ 0.002 mm^-1.
+        "mua": 0.0020000000949949,
+
+        // Scattering coefficient, μs = 5 mm^-1.
+        //
+        // Mean distance between scattering events:
+        // 1 / μs = 0.2 mm.
+        "mus": 5,
+
+        // Strongly forward-scattering medium.
+        //
+        // The reduced scattering coefficient is:
+        // μs' = μs(1-g) = 5(1-0.9) ≈ 0.5 mm^-1.
+        "g": 0.8999999761581421,
+
+        // Refractive index of medium 2.
+        "n": 1
+      }
+    ]
+  }
+}
