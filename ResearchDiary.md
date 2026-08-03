@@ -262,3 +262,8 @@ x%20binary/. Here I choose 2025.10 (Kilo-Kelvin) and downloaded the version for 
 3. I have realized that MCX is also using it
 4. The problem ith mcx can be resolved with specifying the flag  -G '01' for more info visit the readme under the montecarlo directory
 
+### Meeting
+
+1. Create a auto temprature monitoring program
+2. 
+
