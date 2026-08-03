@@ -265,5 +265,5 @@ x%20binary/. Here I choose 2025.10 (Kilo-Kelvin) and downloaded the version for 
 ### Meeting
 
 1. Create a auto temprature monitoring program
-2. 
+2. Photos with clean backround
 
