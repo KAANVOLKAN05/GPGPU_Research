@@ -267,3 +267,9 @@ x%20binary/. Here I choose 2025.10 (Kilo-Kelvin) and downloaded the version for 
 1. Create a auto temprature monitoring program
 2. Photos with clean backround
 
+### Daily stuff
+Date: 8/4/2026
+
+1. Set up Chrome remote access--Installed chrome and chrome remote access
+   
+
