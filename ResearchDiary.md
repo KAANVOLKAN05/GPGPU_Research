@@ -271,5 +271,13 @@ x%20binary/. Here I choose 2025.10 (Kilo-Kelvin) and downloaded the version for 
 Date: 8/4/2026
 
 1. Set up Chrome remote access--Installed chrome and chrome remote access
+2. The steps to getting it to work are as such:
+3. Get on the same wifi as it and ssh into the computer or use the monitor to run the following commands to confirm remote access is up and running
+4. sudo systemctl status chrome-remote-desktop@student --no-pager
+5.sudo systemctl start chrome-remote-desktop@student
+6. After you are done with it, never turn it off from the remote, either do it over ssh or the screen
+7. Also you can not use the real screen while on
+8. Also, select "Ubuntu" when it asks you to choose between it and cinnamon or default. Only ubuntu has worked for me. 
+
    
 
