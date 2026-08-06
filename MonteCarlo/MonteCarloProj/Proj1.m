@@ -1,25 +1,38 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MCXLAB - Monte Carlo eXtreme for MATLAB/Octave by Qianqina Fang
-%
-% In this example, we show the most basic usage of MCXLAB.
-%
-% This file is part of Monte Carlo eXtreme (MCX) URL:https://mcx.space
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 mcxroot = '/home/student/GPGPU_Research/MonteCarlo';
-addpath('/home/student/MonteCarlo/mcx/utils');
+addpath('/home/student/GPGPU_Research/MonteCarlo/mcx/utils');
 addpath(fullfile(mcxroot, 'mcxlab'));
 addpath(fullfile(mcxroot, 'utils'));
 rehash;
+
 % only clear cfg to avoid accidentally clearing other useful data
 clear cfg cfgs;
-cfg.nphoton = 1e7;
-cfg.vol = uint8(ones(60, 60, 60));
+
+
+
+
+
+% Number of photons to simulate
+cfg.nphoton = 1e6;
+% Dimentions of the simulation in mm
+xdim = 100;
+ydim = 100;
+zdim = 100;
+cfg.vol = uint8(ones(xdim, ydim, zdim));
+% Position of the source
 cfg.srcpos = [30 30 1];
+% Direction of the source
 cfg.srcdir = [0 0 1];
-cfg.gpuid = 1;
+
+% How many GPUs to use
+cfg.gpuid = '11';
 % cfg.gpuid='11'; % use two GPUs together
-cfg.autopilot = 1;
-cfg.prop = [0 0 1 1; 0.005 1 0 1.37];
+cfg.autopilot = 1; %good to keep 1
+
+%Properties of the medium, the first one is the properteis of the outside
+%Second one is the inside of our volume
+cfg.prop = [0 0 1 1; 0.005 0.1 0 1.37]; 
+
+%Start time, end time, and time step
 cfg.tstart = 0;
 cfg.tend = 5e-9;
 cfg.tstep = 1e-10;
