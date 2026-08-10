@@ -1,9 +1,0 @@
-import nvsmi
-
-# Check if an NVIDIA driver and GPU are present
-if nvsmi.is_nvidia_smi_on_system():
-    # Get all GPUs as a list of Python objects
-    gpus = list(nvsmi.get_gpus())
-    
-    for gpu in gpus:
-        print(f"ID: {gpu.id} | Name: {gpu.name} | Target Temp: {gpu.temperature}°
