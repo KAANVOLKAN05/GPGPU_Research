@@ -277,7 +277,19 @@ Date: 8/4/2026
 5.sudo systemctl start chrome-remote-desktop@student
 6. After you are done with it, never turn it off from the remote, either do it over ssh or the screen
 7. Also you can not use the real screen while on
-8. Also, select "Ubuntu" when it asks you to choose between it and cinnamon or default. Only ubuntu has worked for me. 
+8. Also, select "Ubuntu" when it asks you to choose between it and cinnamon or default. Only ubuntu has worked for me.
+
+### Meeting
+Date : Today
+
+1. Add Server monitor stuff under the project goal "guide"
+2. Talk to Prof fang about the 1e8 error ( email him and maybe I can also atalka about some of my other experience with it).
+3. remember that to reset the GPUs via nvidia smi you must stop other nvidia-smi procesees
+
+
+### Daily stuff
+Date: 8/11/2026
+1. Usefull website Nvidia cheat sheet https://gist.github.com/omerfsen/8ecb620675525ac724a92bdf5a31a4b3
 
    
 
