@@ -286,5 +286,10 @@ Date : Today
 2. Talk to Prof fang about the 1e8 error ( email him and maybe I can also atalka about some of my other experience with it).
 3. remember that to reset the GPUs via nvidia smi you must stop other nvidia-smi procesees
 
+
+### Daily stuff
+Date: 8/11/2026
+1. Usefull website Nvidia cheat sheet https://gist.github.com/omerfsen/8ecb620675525ac724a92bdf5a31a4b3
+
    
 
