@@ -67,11 +67,28 @@ axis image; % Makes units on the x and y axis equally spaced
 
 %%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+radii = [10, 20, 30];
 
-[idx, theta, I, R] = frontHemisphere2D(total_flux, [50 50 1], [0 0 1], 20, 1);
-logI = log(I)
-scatter(theta, I);
+figure;
+hold on;
+
+for radius = radii
+
+    [idx, theta, I, R] = ...
+        frontHemisphere2D(total_flux, [50 50 1], [0 0 1], radius, 1);
+
+    logI = log(I);
+
+    scatter(theta, logI, 'DisplayName', sprintf('Radius = %d', radius));
+
+end
+
 xlabel('Angle (degrees)');
-ylabel('Fluence');
+ylabel('log(Fluence)');
+title('Fluence vs Angle at Different Radii');
+
+legend('show');
 grid on;
-print('Template.png', '-dpng', '-r300');
+hold off;
+
+print('Radii_10_20_30.png', '-dpng', '-r300');
