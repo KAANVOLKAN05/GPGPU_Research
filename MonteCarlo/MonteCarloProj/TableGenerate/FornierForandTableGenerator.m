@@ -11,8 +11,8 @@
 N = 100000
 theta = linspace(pi, 1e-4, N);
 g = cos(theta);
-mu = 3.07
-n = 1.021
+mu = 4.874
+n = 1.15
 
 %Fornier Forand functio
 %To easily define the function, I will define v and psi
