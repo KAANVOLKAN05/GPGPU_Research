@@ -75,3 +75,4 @@ scatter(theta, I);
 xlabel('Angle (degrees)');
 ylabel('Fluence');
 grid on;
+print('Template.png', '-dpng', '-r300');
