@@ -76,6 +76,10 @@ cfg.seed = rand_seed;
 %cfg.outputtype
 %cfg.session
 
+% define Henyey-Greenstein phase function using cfg.invcdf
+invhg = @(u, g) (1 + g * g - ((1 - g * g) ./ (1 - g + 2 * g * u)).^2) ./ (2 * g);
+cfg.invcdf = invhg(0.01:0.01:1 - 0.01, 0.9);
+%flux = mcxlab(cfg);
 
 
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
