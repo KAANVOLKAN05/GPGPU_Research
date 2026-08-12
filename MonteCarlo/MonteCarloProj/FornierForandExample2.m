@@ -85,8 +85,10 @@ end
 
 xlabel('Angle (degrees)');
 ylabel('log(Fluence)');
-title('Fluence vs Angle at Different Radii');
-
+title({
+    'Fluence vs Angle at Different Radii'
+    'n = 1.040, \mu = 3.201'
+});
 legend('show');
 grid on;
 hold off;
