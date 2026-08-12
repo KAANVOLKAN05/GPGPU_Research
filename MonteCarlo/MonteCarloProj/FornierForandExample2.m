@@ -57,7 +57,7 @@ total_flux = sum(fluxs.data, 4);
 
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
-figure;  %Opens a new figure window and makes it the active plotting window
+%figure;  %Opens a new figure window and makes it the active plotting window
 %plotdata = squeeze(log(total_flux(:, 30, :)));
 %imagesc(plotdata);
 axis image; % Makes units on the x and y axis equally spaced
@@ -69,7 +69,7 @@ axis image; % Makes units on the x and y axis equally spaced
 
 DataAnal = log(total_flux(:,:, :));
 
-[idx, theta, I, R] = frontHemisphere2D(total_flux, [30 30 1], [0 0 1], 20, 1);
+[idx, theta, I, R] = frontHemisphere2D(total_flux, [50 50 1], [0 0 1], 20, 1);
 
 scatter(theta, I);
 xlabel('Angle (degrees)');
