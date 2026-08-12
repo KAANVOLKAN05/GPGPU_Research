@@ -2,8 +2,8 @@
 %%%GPU SETTINGS%%%
 clear cfg cfgs;
 % How many GPUs to use
-cfg.gpuid = '1';
-% cfg.gpuid='11'; % use two GPUs together
+%cfg.gpuid = '1';
+cfg.gpuid='111111'; % use six GPUs together
 cfg.autopilot = 1; %good to keep 1
 
 %%%%%%%%%%%%%%%%% Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,9 +15,9 @@ x_src_pos = 50;
 y_src_pos = 50;
 z_src_pos = 1;
 
-x_dim = 100;
-y_dim = 100;
-z_dim = 100;
+x_dim = 500;
+y_dim = 500;
+z_dim = 500;
 
 volume = ones(x_dim, y_dim, z_dim);
 rand_seed = randi([1 2^31-1],1,1);
@@ -30,7 +30,7 @@ cfg.prop = [0 0 1 1; 0.05 0.2 0 1.37];  % Defines the medium properties [mua mus
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
-cfg.nphoton = 1e6;
+cfg.nphoton = 1e7;
 cfg.srcpos = [x_src_pos y_src_pos z_src_pos];
 cfg.srcdir = [0,0,1];
 %cfg.srctype = 'pencil';
@@ -67,7 +67,7 @@ axis image; % Makes units on the x and y axis equally spaced
 
 %%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-radii = [10, 20, 30];
+radii = [50, 80, 120, 150];
 
 figure;
 hold on;
