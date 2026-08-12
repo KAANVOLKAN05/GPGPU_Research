@@ -8,7 +8,7 @@ cfg.autopilot = 1; %good to keep 1
 
 %%%%%%%%%%%%%%%%% Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The file below loads a struct with the inverse cdf values stored under FFgenerator.invcdf 
-load('TableGenerate/FFTable_n1021_u3074.mat');
+load('TableGenerate/FFTable_n1080_u3483.mat');
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 x_src_pos = 50;
@@ -26,7 +26,7 @@ rand_seed = randi([1 2^31-1],1,1);
 %%%%%%%%%%%%%%%%% Volume Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
 cfg.vol =  uint8(volume); %Defines the size of the volume
-cfg.prop = [0 0 1 1; 0.05 0.2 0 1.37];  % Defines the medium properties [mua mus g n], the first one is backround, it is often just set to [0 0 1 1], and does not do anything
+cfg.prop = [0 0 1 1; 0.6 0.3 0 1.37];  % Defines the medium properties [mua mus g n], the first one is backround, it is often just set to [0 0 1 1], and does not do anything
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
@@ -87,10 +87,10 @@ xlabel('Angle (degrees)');
 ylabel('log(Fluence)');
 title({
     'Fluence vs Angle at Different Radii'
-    'n = 1.040, \mu = 3.201'
+    'n = 1.080, \mu = 3.483, mua = 0.6, mus = 0.3'
 });
 legend('show');
 grid on;
 hold off;
 
-print('Radii_10_20_30.png', '-dpng', '-r300');
+print('Radii_50_80_120_150_n1080_u3483.png', '-dpng', '-r300');
