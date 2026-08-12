@@ -67,7 +67,7 @@ axis image; % Makes units on the x and y axis equally spaced
 
 %%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-DataAnal = log(total_flux(:, 30, :));
+DataAnal = log(total_flux(:,:, :));
 
 [idx, theta, I, R] = frontHemisphere2D(DataAnal, [30 30 1], [0 0 1], 20, 1);
 
