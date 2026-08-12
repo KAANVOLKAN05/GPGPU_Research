@@ -8,10 +8,10 @@
 
 
 %Defined variables
-N = 10000
+N = 100000
 theta = linspace(pi, 1e-4, N);
 g = cos(theta);
-mu = 4.8
+mu = 4.874
 n = 1.15
 
 %Fornier Forand functio
@@ -29,7 +29,7 @@ trueCDF = CDF ./ norm
 
 %% Getting the inverse prob of FF
 u = 0.01:0.001:0.99;
-invcdf = interp1(CDF, g, u);
+invcdf = interp1(trueCDF, g, u);
 
 
 

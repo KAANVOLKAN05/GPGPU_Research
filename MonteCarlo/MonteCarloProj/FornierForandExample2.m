@@ -8,7 +8,7 @@ cfg.autopilot = 1; %good to keep 1
 
 %%%%%%%%%%%%%%%%% Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The file below loads a struct with the inverse cdf values stored under FFgenerator.invcdf 
-load('TableGenerate/FournierForandTable.mat');
+load('TableGenerate/FFTable_n1021_u3074.mat');
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 x_src_pos = 50;
