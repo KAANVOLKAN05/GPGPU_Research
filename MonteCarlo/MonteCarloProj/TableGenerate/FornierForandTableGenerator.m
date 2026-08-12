@@ -10,6 +10,8 @@ N = 1000
 
 theta = linspace(pi, 1e-5, N);
 
+
+
 g = cos(theta);
 mu = 4
 n = 1.1
@@ -21,7 +23,17 @@ psi_pi = (4/(3*(n-1)^2))
 FF = (1 ./ (4*pi .* (1 .- psi) .^ 2 .* psi .^ v)) .* (v .* (1 .- psi) .- (1 .- psi .^ v) .+ (psi .* (1 .- psi .^ v) .- v .* (1 .- psi)) .* ((2 ./ (1 .- g)))) .+ ((1 .- psi_pi .^ v) ./ (16*pi .* (psi_pi .- 1) .* psi_pi .^v)) .* (3 .* (g) .^ 2 .- 1)
 
 
-save('-mat7-binary', 'FournierForandTable.mat', 'FF', 'theta', 'g', 'mu', 'n', 'v');
+% Creating a quick little struct for easy access
+FFgenerator.g = g
+FFgenerator.mu = mu
+FFgenerator.n = n
+FFgenerator.v = v
+FFgenerator.psi = psi
+FFgenerator.psi_pi = psi_pi
+FFgenerator.FF = FF
+
+
+save('-mat7-binary', 'FournierForandTable.mat', 'FFgenerator');
 
 %figure;
 %loglog(theta, FF);
