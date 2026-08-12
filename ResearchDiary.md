@@ -291,5 +291,14 @@ Date : Today
 Date: 8/11/2026
 1. Usefull website Nvidia cheat sheet https://gist.github.com/omerfsen/8ecb620675525ac724a92bdf5a31a4b3
 
+
+### Daily stuff
+Date: 8/12/2026
+#### Short term goal:
+1. Create a 500 by 500 grid for accuracy
+2. Run the mcx
+3. Do the analysis for 40 80 100 120 140 mm radius
+4. Do it for all the BB parameters given in FF ocean
+5. Do the same thing for HG for confirmation
    
 
