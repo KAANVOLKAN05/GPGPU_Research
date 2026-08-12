@@ -8,11 +8,11 @@
 
 
 %Defined variables
-N = 100000
+N = 10000
 theta = linspace(pi, 1e-4, N);
 g = cos(theta);
-mu = 4
-n = 1.1
+mu = 4.8
+n = 1.15
 
 %Fornier Forand functio
 %To easily define the function, I will define v and psi
