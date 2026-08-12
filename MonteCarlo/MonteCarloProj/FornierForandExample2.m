@@ -70,7 +70,7 @@ axis image; % Makes units on the x and y axis equally spaced
 
 [idx, theta, I, R] = frontHemisphere2D(total_flux, [50 50 1], [0 0 1], 20, 1);
 logI = log(I)
-scatter(theta, logI);
+scatter(theta, I);
 xlabel('Angle (degrees)');
 ylabel('Fluence');
 grid on;
