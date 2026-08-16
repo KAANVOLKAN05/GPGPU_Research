@@ -11,9 +11,9 @@ cfg.autopilot = 1; %good to keep 1
 load('TableGenerate/FFTable_n1080_u3483.mat');
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-x_src_pos = 50;
-y_src_pos = 50;
-z_src_pos = 1;
+x_src_pos = 250;
+y_src_pos = 250;
+z_src_pos = 250;
 
 x_dim = 500;
 y_dim = 500;
