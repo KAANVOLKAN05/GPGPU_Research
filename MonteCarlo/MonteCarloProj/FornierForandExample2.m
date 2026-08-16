@@ -60,12 +60,12 @@ total_flux = sum(fluxs.data, 4);
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %figure;  %Opens a new figure window and makes it the active plotting window
-%plotdata = squeeze(log(total_flux(:, 30, :)));
-%imagesc(plotdata);
+%plotdata = squeeze(log10(total_flux(:, 250, :)));
+imagesc(plotdata);
 axis image; % Makes units on the x and y axis equally spaced
 %colorbar; % Adds a color scale beside the image
-%title('Template');
-%print('Template.png', '-dpng', '-r300');
+title('Template');
+print('Template.png', '-dpng', '-r300');
 
 %%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
