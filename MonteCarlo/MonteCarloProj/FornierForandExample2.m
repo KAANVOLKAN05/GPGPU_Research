@@ -76,7 +76,7 @@ hold on;
 
 for radius = radii
 
-    [idx, theta, I, R] = frontHemisphere2D(total_flux, [50 50 1], [0 0 1], radius, 1);
+    [idx, theta, I, R] = fullCircle2D(total_flux, [250 250 250],[0 0 1], radius, 1);
     logI = log(I);
     scatter(theta, logI, 'DisplayName', sprintf('Radius = %d', radius));
 end
