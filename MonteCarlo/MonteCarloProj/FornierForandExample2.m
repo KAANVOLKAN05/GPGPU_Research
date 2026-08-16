@@ -60,7 +60,7 @@ total_flux = sum(fluxs.data, 4);
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %figure;  %Opens a new figure window and makes it the active plotting window
-%plotdata = squeeze(log10(total_flux(:, 250, :)));
+plotdata = squeeze(log10(total_flux(:, 250, :)));
 imagesc(plotdata);
 axis image; % Makes units on the x and y axis equally spaced
 %colorbar; % Adds a color scale beside the image
