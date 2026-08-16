@@ -30,7 +30,7 @@ cfg.prop = [0 0 1 1; 0.1 0.3 0.6 1.37];  % Defines the medium properties [mua mu
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
-cfg.nphoton = 1e7;
+cfg.nphoton = 1e6;
 cfg.srcpos = [x_src_pos y_src_pos z_src_pos];
 cfg.srcdir = [0,0,1];
 %cfg.srctype = 'pencil';
@@ -76,13 +76,8 @@ hold on;
 
 for radius = radii
 
-<<<<<<< HEAD
     [idx, theta, I, R] = frontHemisphere2D(total_flux, [50 50 1], [0 0 1], radius, 1);
     logI = log10(I);
-=======
-    [idx, theta, I, R] = fullCircle2D(total_flux, [250 250 250],[0 0 1], radius, 1);
-    logI = log(I);
->>>>>>> 8da7e4daa2d8d786297626f660376fa9fc20fce1
     scatter(theta, logI, 'DisplayName', sprintf('Radius = %d', radius));
 end
 
