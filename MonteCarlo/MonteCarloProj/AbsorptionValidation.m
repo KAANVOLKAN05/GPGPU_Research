@@ -48,6 +48,7 @@ cfg.tend = 5e-9;      %ending time of the simulation (in second)
 cfg.bc = 'aaaaaa';    %Makes all the walls absorbant
 %Below are optional
 cfg.seed = rand_seed;
+cfg.outputtype = 'fluence'; 
 
 
 
@@ -64,24 +65,33 @@ for mua_val = mua_list
 
     cfg.prop = [0 0 1 1; mua_val mus 0.6 1.37];  % Defines the medium properties [mua mus g n], the first one is backround, it is often just set to [0 0 1 1], and does not do anything
     fluxs = mcxlab(cfg);
-    total_flux = sum(fluxs.data, 4);
-    value = total_flux(250, 250, 350);
+    total_fluence = sum(fluxs.data, 4);
+    value = total_fluence(250,250,350);
     % logValue = log10(value);
     values_list(end+1) = value;
 end
 
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+normalized_MCX = values_list ./ values_list(1);
+
+theory = exp(-mua_list * 100);
+theory = theory ./ theory(1);
+
 figure;
+semilogy(mua_list, normalized_MCX, 'o-');
 hold on;
+semilogy(mua_list, theory, 'x-');
+
 xlabel('Absorption coefficent');
-ylabel('log(Fluence)');
+ylabel('Normalized Fluence');
 subtitle = sprintf('Junge = %.3f, n = %.3f, mus = %.6g',junge, index_of_ref, mus);
 title({'Fluence at 0 degrees vs Absorption coefficents', subtitle});
-% scatter(mua_list, values_list, 20);
-loglog(mua_list, values_list, 'o');
+
+legend('MCX', 'e^{-\mu_a r}');
 grid on;
-hold off;
+
 filename2 = sprintf('AbsorptionCoeffTest_Junge_%.3f_%.6g_mus_%.6g.png',junge, index_of_ref, mus);
 print(filename2, '-dpng', '-r300');
 
