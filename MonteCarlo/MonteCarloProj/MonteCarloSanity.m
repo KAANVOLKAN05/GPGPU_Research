@@ -73,7 +73,7 @@ axis image; % Makes units on the x and y axis equally spaced
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
 title({'Monte Carlo', subtitle});
 
-filename = sprintf('MonteCarlo_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png', ...junge, index_of_ref, mua, mus);
+filename = sprintf('MonteCarlo_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
 print(filename, '-dpng', '-r300');
 
 %%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -92,14 +92,13 @@ end
 
 xlabel('Angle (degrees)');
 ylabel('log(Fluence)');
-subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', ...
-                   junge, index_of_ref, mua, mus);
+subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g',junge, index_of_ref, mua, mus);
 
 title({'Fluence vs Angle at Different Radii', subtitle});
 
-filename = sprintf('RadianDIstribution_Junge_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
+filename2 = sprintf('RadianDIstribution_Junge_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
 
-print(filename, '-dpng', '-r300');
+print(filename2, '-dpng', '-r300');
 legend('show');
 grid on;
 hold off;
