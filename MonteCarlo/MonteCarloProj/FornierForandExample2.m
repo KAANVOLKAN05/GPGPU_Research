@@ -1,5 +1,5 @@
 
-myinp = inputdlg({'GPUs to use','height','hi'},'Please input data!',1,{111111,320.9,5})
+myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus'},'Please input data!',1,{111111,4.87,1.18})
 
 %%%GPU SETTINGS%%%
 clear cfg cfgs;
@@ -11,7 +11,9 @@ cfg.autopilot = 1; %good to keep 1
 
 %%%%%%%%%%%%%%%%% Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The file below loads a struct with the inverse cdf values stored under FFgenerator.invcdf 
-FFgenerator = FornierForandTableGenerator(4.87, 1.18)
+junge = str2num (myinp{2});
+index_of_ref = str2num (myinp{3});
+FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 x_src_pos = 250;
@@ -29,7 +31,9 @@ rand_seed = randi([1 2^31-1],1,1);
 %%%%%%%%%%%%%%%%% Volume Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
 cfg.vol =  uint8(volume); %Defines the size of the volume
-cfg.prop = [0 0 1 1; 0.1 0.3 0.6 1.37];  % Defines the medium properties [mua mus g n], the first one is backround, it is often just set to [0 0 1 1], and does not do anything
+mua = str2double(myinp{4});
+mus = str2double(myinp{5});
+cfg.prop = [0 0 1 1; mua mus 0.6 1.37];  % Defines the medium properties [mua mus g n], the first one is backround, it is often just set to [0 0 1 1], and does not do anything
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
