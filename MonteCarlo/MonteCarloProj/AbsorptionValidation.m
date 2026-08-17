@@ -35,7 +35,7 @@ mus = str2double(myinp{5});
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
-cfg.nphoton = 1e6;
+cfg.nphoton = 1e4;
 cfg.srcpos = [x_src_pos y_src_pos z_src_pos];
 cfg.srcdir = [0,0,1];
 cfg.srctype = 'pencil';
@@ -58,7 +58,7 @@ cfg.invcdf = FFgenerator.invcdf;
 %invhg = @(u, g) (1 + g * g - ((1 - g * g) ./ (1 - g + 2 * g * u)).^2) ./ (2 * g);
 %cfg.invcdf = invhg(0.01:0.01:1 - 0.01, 0.8);
 %%%%%%%%%%%%%%%%% apply mcxlab functions %%%%%%%%%%%%%%%%%%%%%%%%%
-mua_list = [0.0000001, 0.00005, 0.0001, 0.001, 0.01, 0.1, 0.6];
+mua_list = [0.0000001, 0.00001, 0.0001, 0.001, 0.01, 0.1, 0.5];
 values_list = [];
 for mua_val = mua_list
 
@@ -66,8 +66,8 @@ for mua_val = mua_list
     fluxs = mcxlab(cfg);
     total_flux = sum(fluxs.data, 4);
     value = total_flux(250, 250, 350);
-    logValue = log10(value);
-    values_list(end+1) = logValue;
+    % logValue = log10(value);
+    values_list(end+1) = value;
 end
 
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -78,9 +78,10 @@ xlabel('Absorption coefficent');
 ylabel('log(Fluence)');
 subtitle = sprintf('Junge = %.3f, n = %.3f, mus = %.6g',junge, index_of_ref, mus);
 title({'Fluence at 0 degrees vs Absorption coefficents', subtitle});
-scatter(mua_list, values_list, 20);
+% scatter(mua_list, values_list, 20);
+loglog(mua_list, values_list, 'o');
 grid on;
 hold off;
-filename2 = sprintf('RadianDIstribution_Junge_%.3f_%.6g_mus_%.6g.png',junge, index_of_ref, mus);
+filename2 = sprintf('AbsorptionCoeffTest_Junge_%.3f_%.6g_mus_%.6g.png',junge, index_of_ref, mus);
 print(filename2, '-dpng', '-r300');
 
