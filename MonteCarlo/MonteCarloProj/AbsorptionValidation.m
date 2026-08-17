@@ -98,6 +98,8 @@ text(0.03, 0.95, sprintf('Log RMSE = %.4f', RMSE_log), ...
      'VerticalAlignment', 'top', ...
      'FontSize', 12);
 
+hold off;
+
 filename2 = sprintf('AbsorptionCoeffTest_Junge_%.3f_%.6g_mus_%.6g.png',junge, index_of_ref, mus);
 print(filename2, '-dpng', '-r300');
 
