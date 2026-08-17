@@ -17,13 +17,13 @@ FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
 disp("Generated Table for Fornier Forand with given parameters")
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-x_src_pos = 500;
-y_src_pos = 500;
-z_src_pos = 500;
+x_src_pos = 250;
+y_src_pos = 250;
+z_src_pos = 250;
 
-x_dim = 1000;
-y_dim = 1000;
-z_dim = 1000;
+x_dim = 500;
+y_dim = 500;
+z_dim = 500;
 
 volume = ones(x_dim, y_dim, z_dim);
 rand_seed = randi([1 2^31-1],1,1);
@@ -68,7 +68,7 @@ total_flux = sum(fluxs.data, 4);
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %figure;  %Opens a new figure window and makes it the active plotting window
-plotdata = squeeze(log10(total_flux(:, 500, :)));
+plotdata = squeeze(log10(total_flux(:, 250, :)));
 imagesc(plotdata);
 axis image; % Makes units on the x and y axis equally spaced
 %colorbar; % Adds a color scale beside the image
@@ -77,14 +77,14 @@ print('Template.png', '-dpng', '-r300');
 
 %%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-radii = [50, 80, 120, 200];
+radii = [50, 80, 120, 150];
 
 figure;
 hold on;
 
 for radius = radii
 
-    [idx, theta, I, R] = fullCircle2D(total_flux, [500 500 500], [0 0 1], radius, 1);
+    [idx, theta, I, R] = fullCircle2D(total_flux, [250 250 250], [0 0 1], radius, 1);
     logI = log10(I);
     scatter(theta, logI, 'DisplayName', sprintf('Radius = %d', radius));
 end
