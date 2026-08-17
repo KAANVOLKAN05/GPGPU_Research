@@ -78,6 +78,8 @@ normalized_MCX = values_list ./ values_list(1);
 
 theory = exp(-mua_list * 100);
 theory = theory ./ theory(1);
+log_error = log10(normalized_MCX) - log10(theory);
+RMSE_log = sqrt(mean(log_error.^2));
 
 figure;
 semilogy(mua_list, normalized_MCX, 'o-');
@@ -91,6 +93,10 @@ title({'Fluence at 0 degrees vs Absorption coefficents', subtitle});
 
 legend('MCX', 'e^{-\mu_a r}');
 grid on;
+text(0.03, 0.95, sprintf('Log RMSE = %.4f', RMSE_log), ...
+     'Units', 'normalized', ...
+     'VerticalAlignment', 'top', ...
+     'FontSize', 12);
 
 filename2 = sprintf('AbsorptionCoeffTest_Junge_%.3f_%.6g_mus_%.6g.png',junge, index_of_ref, mus);
 print(filename2, '-dpng', '-r300');
