@@ -1,5 +1,5 @@
 
-myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus'},'Please input data!',1,{111111,4.87,1.18,0.3,0.1})
+myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus'},'Please input data!',1,{111111,3.56,1.09,0.00021,0.00027})
 
 %%%GPU SETTINGS%%%
 clear cfg cfgs;
