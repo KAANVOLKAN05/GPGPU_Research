@@ -1,5 +1,5 @@
 
-myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus'},'Please input data!',1,{111111,3.56,1.09,0.00021,0.00027})
+myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus','Title'},'Please input data!',1,{111111,3.56,1.09,0.00021,0.00027, Monte Carlo})
 
 %%%GPU SETTINGS%%%
 clear cfg cfgs;
@@ -71,7 +71,7 @@ axis image; % Makes units on the x and y axis equally spaced
 %colorbar; % Adds a color scale beside the image
 
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
-title({'Monte Carlo', subtitle});
+title({myinp{6}, subtitle});
 
 filename = sprintf('MonteCarlo_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
 print(filename, '-dpng', '-r300');
