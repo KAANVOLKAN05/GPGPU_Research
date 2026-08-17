@@ -6,7 +6,7 @@ clear cfg cfgs;
 % How many GPUs to use
 %cfg.gpuid = '1';
 %cfg.gpuid= '111111'; % use six GPUs together
-cfg.gpuid = myinp{1}
+cfg.gpuid = myinp{1};
 cfg.autopilot = 1; %good to keep 1
 
 %%%%%%%%%%%%%%%%% Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,11 +55,11 @@ cfg.seed = rand_seed;
 
 
 % define phase function using cfg.invcdf
-%cfg.invcdf = FFgenerator.invcdf;
+cfg.invcdf = FFgenerator.invcdf;
 
 % define Henyey-Greenstein phase function using cfg.invcdf
-invhg = @(u, g) (1 + g * g - ((1 - g * g) ./ (1 - g + 2 * g * u)).^2) ./ (2 * g);
-cfg.invcdf = invhg(0.01:0.01:1 - 0.01, 0.8);
+%invhg = @(u, g) (1 + g * g - ((1 - g * g) ./ (1 - g + 2 * g * u)).^2) ./ (2 * g);
+%cfg.invcdf = invhg(0.01:0.01:1 - 0.01, 0.8);
 %%%%%%%%%%%%%%%%% apply mcxlab functions %%%%%%%%%%%%%%%%%%%%%%%%%
 
 fluxs = mcxlab(cfg);
