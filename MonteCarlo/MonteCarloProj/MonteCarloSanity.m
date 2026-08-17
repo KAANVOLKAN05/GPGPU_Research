@@ -35,7 +35,7 @@ cfg.prop = [0 0 1 1; mua mus 0.6 1.37];  % Defines the medium properties [mua mu
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
-cfg.nphoton = 1e4;
+cfg.nphoton = 1e6;
 cfg.srcpos = [x_src_pos y_src_pos z_src_pos];
 cfg.srcdir = [0,0,1];
 cfg.srctype = 'pencil';
