@@ -50,7 +50,7 @@ cfg.srcdir = [0,0,1];
 cfg.tstart = 0; %starting time of the simulation (in seconds)
 cfg.tstep = 5e-10;    %time-gate width of the simulation (in seconds)
 cfg.tend = 5e-9;      %ending time of the simulation (in second)
-
+cfg.bc = 'aaaaaa';
 %Below are optional
 cfg.seed = rand_seed;
 
