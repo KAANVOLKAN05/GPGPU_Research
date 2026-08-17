@@ -13,7 +13,9 @@ cfg.autopilot = 1; %good to keep 1
 % The file below loads a struct with the inverse cdf values stored under FFgenerator.invcdf 
 junge = str2num (myinp{2});
 index_of_ref = str2num (myinp{3});
+disp('BEFORE FF');
 FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
+disp('AFTER FF');
 disp("Generated Table for Fornier Forand with given parameters")
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,8 +64,13 @@ cfg.invcdf = FFgenerator.invcdf;
 %cfg.invcdf = invhg(0.01:0.01:1 - 0.01, 0.8);
 %%%%%%%%%%%%%%%%% apply mcxlab functions %%%%%%%%%%%%%%%%%%%%%%%%%
 
+disp('BEFORE MCX');
 fluxs = mcxlab(cfg);
+disp('AFTER MCX');
+
+disp('BEFORE SUM');
 total_flux = sum(fluxs.data, 4);
+disp('AFTER SUM');
 
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
