@@ -91,7 +91,7 @@ ylabel('Normalized Fluence');
 subtitle = sprintf('Junge = %.3f, n = %.3f, mus = %.6g',junge, index_of_ref, mus);
 title({'Fluence at 0 degrees vs Absorption coefficents', subtitle});
 
-legend('MCX', 'e^{-\mu_a r}');
+legend('MCX', 'BeerLambert');
 grid on;
 text(0.03, 0.95, sprintf('Log RMSE = %.4f', RMSE_log), ...
      'Units', 'normalized', ...
@@ -99,7 +99,7 @@ text(0.03, 0.95, sprintf('Log RMSE = %.4f', RMSE_log), ...
      'FontSize', 12);
 
 hold off;
-
+save('AbsorptionTestResults.mat','mua_list', 'values_list', 'normalized_MCX','theory', 'log_error', 'RMSE_log');
 filename2 = sprintf('AbsorptionCoeffTest_Junge_%.3f_%.6g_mus_%.6g.png',junge, index_of_ref, mus);
 print(filename2, '-dpng', '-r300');
 
