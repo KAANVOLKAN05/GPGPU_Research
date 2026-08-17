@@ -38,7 +38,7 @@ cfg.prop = [0 0 1 1; mua mus 0.6 1.37];  % Defines the medium properties [mua mu
 cfg.nphoton = 1e4;
 cfg.srcpos = [x_src_pos y_src_pos z_src_pos];
 cfg.srcdir = [0,0,1];
-%cfg.srctype = 'pencil';
+cfg.srctype = 'pencil';
 
 %%%%%%%%%%%%%%%%% MonteCarlo Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
@@ -69,8 +69,12 @@ plotdata = squeeze(log10(total_flux(:, 250, :)));
 imagesc(plotdata);
 axis image; % Makes units on the x and y axis equally spaced
 %colorbar; % Adds a color scale beside the image
-title('Template');
-print('Template.png', '-dpng', '-r300');
+
+subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
+title({'Monte Carlo'subtitle});
+
+filename = sprintf('MonteCarlo_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png', ...junge, index_of_ref, mua, mus);
+print(filename, '-dpng', '-r300');
 
 %%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -88,10 +92,14 @@ end
 
 xlabel('Angle (degrees)');
 ylabel('log(Fluence)');
-title({
-    'Fluence vs Angle at Different Radii'
-    'n = 1.080, \mu = 3.483, mua = 0.1, mus = 0.3'
-});
+subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', ...
+                   junge, index_of_ref, mua, mus);
+
+title({'Fluence vs Angle at Different Radii'subtitle});
+
+filename = sprintf('RadianDIstribution_Junge_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
+
+print(filename, '-dpng', '-r300');
 legend('show');
 grid on;
 hold off;
