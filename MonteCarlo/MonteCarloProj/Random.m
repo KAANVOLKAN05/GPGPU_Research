@@ -1,6 +1,6 @@
 load("AbsorptionTestResults.mat")
 % Access variables as fields of the structure
-mua_list = data.mua_list
+mua_list = mua_list
 values_list = data.values_list
 normalized_MCX = data.normalized_MCX
 theory = data.theory
