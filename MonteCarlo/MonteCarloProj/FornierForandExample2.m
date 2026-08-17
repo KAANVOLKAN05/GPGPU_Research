@@ -1,11 +1,12 @@
 
-myinp = inputdlg({'width','height'},'Please input data!',1,{2.5,320.9})
+myinp = inputdlg({'GPUs to use','height','hi'},'Please input data!',1,{111111,320.9,5})
 
 %%%GPU SETTINGS%%%
 clear cfg cfgs;
 % How many GPUs to use
 %cfg.gpuid = '1';
-cfg.gpuid='111111'; % use six GPUs together
+%cfg.gpuid= '111111'; % use six GPUs together
+cfg.gpuid = myinp{1}
 cfg.autopilot = 1; %good to keep 1
 
 %%%%%%%%%%%%%%%%% Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
