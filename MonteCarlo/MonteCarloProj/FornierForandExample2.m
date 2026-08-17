@@ -14,6 +14,7 @@ cfg.autopilot = 1; %good to keep 1
 junge = str2num (myinp{2});
 index_of_ref = str2num (myinp{3});
 FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
+disp("Generated Table for Fornier Forand with given parameters")
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 x_src_pos = 250;

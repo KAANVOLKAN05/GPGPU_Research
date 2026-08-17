@@ -25,7 +25,7 @@ function FFgenerator = FornierForandTableGenerator(mu, n)
 
     % Getting the cumulitive prob of FF
     p_g = 2*pi .* FF; % Multiplying with 2 pi beacsue it will come in while multiplying with the aziumthal angle
-    norm = trapz(g, p_g)  %Ideally should be 1 but is not due to numerical stuff
+    norm = trapz(g, p_g);  %Ideally should be 1 but is not due to numerical stuff
     CDF = cumtrapz(g, p_g);
     trueCDF = CDF ./ norm;
 
@@ -36,18 +36,18 @@ function FFgenerator = FornierForandTableGenerator(mu, n)
 
 
     % Creating a quick little struct for easy access
-    FFgenerator.g = g
-    FFgenerator.mu = mu
-    FFgenerator.n = n
-    FFgenerator.v = v
-    FFgenerator.psi = psi
-    FFgenerator.psi_pi = psi_pi
-    FFgenerator.FF = FF
-    FFgenerator.p_g = p_g
-    FFgenerator.norm = norm
-    FFgenerator.CDF = CDF
-    FFgenerator.trueCDF = trueCDF
-    FFgenerator.invcdf = invcdf
+    FFgenerator.g = g;
+    FFgenerator.mu = mu;
+    FFgenerator.n = n;
+    FFgenerator.v = v;
+    FFgenerator.psi = psi;
+    FFgenerator.psi_pi = psi_pi;
+    FFgenerator.FF = FF;
+    FFgenerator.p_g = p_g;
+    FFgenerator.norm = norm;
+    FFgenerator.CDF = CDF;
+    FFgenerator.trueCDF = trueCDF;
+    FFgenerator.invcdf = invcdf;
 
 end
 
