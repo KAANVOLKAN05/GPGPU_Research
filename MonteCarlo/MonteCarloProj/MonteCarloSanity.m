@@ -71,7 +71,7 @@ axis image; % Makes units on the x and y axis equally spaced
 %colorbar; % Adds a color scale beside the image
 
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
-title({'Monte Carlo'subtitle});
+title({'Monte Carlo', subtitle});
 
 filename = sprintf('MonteCarlo_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png', ...junge, index_of_ref, mua, mus);
 print(filename, '-dpng', '-r300');
@@ -95,7 +95,7 @@ ylabel('log(Fluence)');
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', ...
                    junge, index_of_ref, mua, mus);
 
-title({'Fluence vs Angle at Different Radii'subtitle});
+title({'Fluence vs Angle at Different Radii', subtitle});
 
 filename = sprintf('RadianDIstribution_Junge_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
 
