@@ -1,4 +1,6 @@
 
+myinp = inputdlg({'width','height'},'Please input data!',1,{2.5,320.9})
+
 %%%GPU SETTINGS%%%
 clear cfg cfgs;
 % How many GPUs to use
