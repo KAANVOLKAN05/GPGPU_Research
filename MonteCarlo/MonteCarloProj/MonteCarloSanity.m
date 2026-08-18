@@ -31,7 +31,7 @@ rand_seed = randi([1 2^31-1],1,1);
 cfg.vol =  uint8(volume); %Defines the size of the volume
 mua = str2double(myinp{4});
 mus = str2double(myinp{5});
-cfg.prop = [0 0 1 1; mua mus 0.6 1.37];  % Defines the medium properties [mua mus g n], the first one is backround, it is often just set to [0 0 1 1], and does not do anything
+cfg.prop = [0 0 1 1; mua mus 0.9 1.37];  % Defines the medium properties [mua mus g n], the first one is backround, it is often just set to [0 0 1 1], and does not do anything
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
@@ -61,8 +61,8 @@ cfg.invcdf = FFgenerator.invcdf;
 
 fluxs = mcxlab(cfg);
 total_flux = sum(fluxs.data, 4);
-matfilename = sprintf('RadianDIstribution_Junge_%.3f_n_%.3f_mua_%.6g_mus_%.6g.mat',junge, index_of_ref, mua, mus);
-save(matfilename, 'total_flux', 'cfg', 'junge', 'index_of_ref', 'mua', 'mus');
+%matfilename = sprintf('RadianDIstribution_Junge_%.3f_n_%.3f_mua_%.6g_mus_%.6g.mat',junge, index_of_ref, mua, mus);
+%save(matfilename, 'total_flux', 'cfg', 'junge', 'index_of_ref', 'mua', 'mus');
 
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -99,10 +99,9 @@ subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g',junge, index
 title({'Fluence vs Angle at Different Radii', subtitle});
 
 filename2 = sprintf('RadianDIstribution_Junge_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
-
-print(filename2, '-dpng', '-r300');
-legend('show');
 grid on;
 hold off;
+print(filename2, '-dpng', '-r300');
+legend('show');
 
-print('HGtest.png', '-dpng', '-r300');
+
