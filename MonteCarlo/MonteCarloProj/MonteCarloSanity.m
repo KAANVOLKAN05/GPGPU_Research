@@ -43,7 +43,7 @@ cfg.srctype = 'pencil';
 %%%%%%%%%%%%%%%%% MonteCarlo Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
 cfg.tstart = 0; %starting time of the simulation (in seconds)
-cfg.tstep = 5e-10;    %time-gate width of the simulation (in seconds)
+cfg.tstep = 5e-9;    %time-gate width of the simulation (in seconds)
 cfg.tend = 5e-9;      %ending time of the simulation (in second)
 cfg.bc = 'aaaaaa';    %Makes all the walls absorbant
 %Below are optional
@@ -61,6 +61,8 @@ cfg.invcdf = FFgenerator.invcdf;
 
 fluxs = mcxlab(cfg);
 total_flux = sum(fluxs.data, 4);
+matfilename = sprintf('RadianDIstribution_Junge_%.3f_n_%.3f_mua_%.6g_mus_%.6g.mat',junge, index_of_ref, mua, mus);
+save(matfilename, 'total_flux', 'cfg', 'junge', 'index_of_ref', 'mua', 'mus');
 
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
