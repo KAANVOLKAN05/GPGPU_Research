@@ -99,9 +99,10 @@ subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g',junge, index
 title({'Fluence vs Angle at Different Radii', subtitle});
 
 filename2 = sprintf('RadianDIstribution_Junge_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
+legend('show');
 grid on;
 hold off;
 print(filename2, '-dpng', '-r300');
-legend('show');
+
 
 
