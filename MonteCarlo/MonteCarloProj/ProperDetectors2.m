@@ -105,13 +105,18 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Plot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 figure;
-plot(x_centers, x_signal, '-o');
+
+bar(x_centers, x_signal, 1);
+hold on;
+plot(x_centers, x_signal, '-');
 
 xlabel('X position (mm)');
 ylabel('Escaping photon weight');
 title('Signal on +Z detector plane');
+
+grid on;
+hold off;
 grid on;
 print('PropDetectroTest1.png', '-dpng', '-r300');
 
