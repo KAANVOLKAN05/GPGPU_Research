@@ -113,12 +113,13 @@ plot(x_centers, x_signal, '-');
 
 xlabel('X position (mm)');
 ylabel('Escaping photon weight');
-title('Signal on +Z detector plane');
+subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
+title({myinp{6}, subtitle});
 
 grid on;
 hold off;
 grid on;
-filename = sprintf('MonteCarlo_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
+filename = sprintf('TopDetectorTest_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
 print(filename, '-dpng', '-r300');
 
 
