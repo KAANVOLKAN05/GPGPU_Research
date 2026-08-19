@@ -101,6 +101,10 @@ title('Photon signal along middle of +Y boundary');
 print('PropDetTest1', '-dpng', '-r300');
 
 grid on;
+drawnow;
+
+% Save plot
+print(gcf, 'PropDetTest1.png', '-dpng', '-r300');
 
 fprintf('Total recorded photons: %d\n', length(detw));
 fprintf('Photons through +Y center strip: %d\n', sum(selected));
