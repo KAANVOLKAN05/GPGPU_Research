@@ -113,6 +113,7 @@ xlabel('X position (mm)');
 ylabel('Escaping photon weight');
 title('Signal on +Z detector plane');
 grid on;
+print('PropDetectroTest1.png', '-dpng', '-r300');
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
