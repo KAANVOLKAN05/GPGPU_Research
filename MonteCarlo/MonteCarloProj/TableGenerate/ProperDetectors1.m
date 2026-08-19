@@ -1,3 +1,4 @@
+disp("RUNNING NEW +Z DETECTOR VERSION");
 myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus','Title'},'Please input data!',1,{111111,3.4,1.1,0.003,0.03, "MonteCarlo"})
 
 %%%GPU SETTINGS%%%
