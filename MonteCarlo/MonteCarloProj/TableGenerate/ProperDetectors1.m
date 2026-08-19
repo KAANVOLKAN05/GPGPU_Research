@@ -61,27 +61,30 @@ cfg.invcdf = FFgenerator.invcdf;
 % Analyze photons leaving the +Y boundary
 % Calculate surviving weight of every recorded photon
 detw = mcxdetweight(detp, cfg.prop, cfg.unitinmm);
-
-% Middle of the +Y face in X
-x_middle = x_dim / 2;
-dx = 1;
 tol = 1e-4;
 
-% Determining tyhe photon exits through the top
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Select photons leaving the +Z boundary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 on_zplus = abs(detp.p(:,3) - z_dim) < tol;
 
-% Determining the photon is in the middle strip
-in_middle_strip = detp.p(:,1) >= x_middle - dx/2 & detp.p(:,1) <  x_middle + dx/2;
-
-y_middle = y_dim / 2;   % 15
+% Take a 1-mm-wide strip centered at Y = 15
+y_middle = y_dim / 2;
 dy = 1;
 
-in_middle_strip = detp.p(:,2) >= y_middle - dy/2 & detp.p(:,2) <  y_middle + dy/2;
+in_middle_strip = ...
+    detp.p(:,2) >= y_middle - dy/2 & ...
+    detp.p(:,2) <  y_middle + dy/2;
 
-% Full agreement with our conditions
+% Photon must leave +Z AND be within middle Y strip
 selected = on_zplus & in_middle_strip;
 
-% Binning based on the z dimention
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bin selected photons according to X
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 x_edges = 0:1:x_dim;
 x_centers = x_edges(1:end-1) + 0.5;
 
@@ -91,10 +94,16 @@ for i = 1:x_dim
 
     in_x_bin = ...
         detp.p(:,1) >= x_edges(i) & ...
-        detp.p(:,1) < x_edges(i+1);
+        detp.p(:,1) <  x_edges(i+1);
 
     x_signal(i) = sum(detw(selected & in_x_bin));
+
 end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plot
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 figure;
 plot(x_centers, x_signal, '-o');
@@ -105,6 +114,11 @@ title('Signal on +Z detector plane');
 grid on;
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 fprintf('Total recorded photons: %d\n', length(detw));
-fprintf('Photons through +Y center strip: %d\n', sum(selected));
-fprintf('Total weight through +Y center strip: %.8g\n', sum(detw(selected)));
+fprintf('Photons through +Z center strip: %d\n', sum(selected));
+fprintf('Total weight through +Z center strip: %.8g\n', ...
+        sum(detw(selected)));
