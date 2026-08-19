@@ -13,9 +13,10 @@ FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
 disp("Generated Table for Fornier Forand with given parameters")
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-x_src_pos = 50;
+x_src_pos = 1;
 y_src_pos = 15;
 z_src_pos = 50;
+
 
 x_dim = 100;
 y_dim = 30;
@@ -35,8 +36,9 @@ cfg.prop = [0 0 1 1; mua mus 0.9 1.37];  % Defines the medium properties [mua mu
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
 cfg.nphoton = 1e6;
-cfg.srcpos = [x_src_pos y_src_pos z_src_pos];
-cfg.srcdir = [0,1,0];
+
+cfg.srcpos = [x_src_pos, y_src_pos, z_src_pos];
+cfg.srcdir = [1, 0, 0];
 cfg.srctype = 'pencil';
 
 %%%%%%%%%%%%%%%%% MonteCarlo Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,7 +46,7 @@ cfg.srctype = 'pencil';
 cfg.tstart = 0; %starting time of the simulation (in seconds)
 cfg.tstep = 5e-9;    %time-gate width of the simulation (in seconds)
 cfg.tend = 5e-9;      %ending time of the simulation (in second)
-cfg.bc = 'aaaaaa000011';    %Makes all the walls absorbant and +Z and +Y record exiting photons
+cfg.bc = 'aaaaaa000101';   %Makes all the walls absorbant and +Z and +Y record exiting photons
 cfg.savedetflag = 'dpxv'; %Requests the data of the exiting photons are saved
 %Below are optional
 cfg.seed = rand_seed;
@@ -66,45 +68,42 @@ dx = 1;
 tol = 1e-4;
 
 % Determining tyhe photon exits through the top
-on_yplus = abs(detp.p(:,2) - y_dim) < tol;
+on_zplus = abs(detp.p(:,3) - z_dim) < tol;
 
 % Determining the photon is in the middle strip
 in_middle_strip = detp.p(:,1) >= x_middle - dx/2 & detp.p(:,1) <  x_middle + dx/2;
 
+y_middle = y_dim / 2;   % 15
+dy = 1;
+
+in_middle_strip = detp.p(:,2) >= y_middle - dy/2 & detp.p(:,2) <  y_middle + dy/2;
+
 % Full agreement with our conditions
-selected = on_yplus & in_middle_strip;
+selected = on_zplus & in_middle_strip;
 
 % Binning based on the z dimention
+x_edges = 0:1:x_dim;
+x_centers = x_edges(1:end-1) + 0.5;
 
-z_edges = 0:1:z_dim;
-z_centers = z_edges(1:end-1) + 0.5;
+x_signal = zeros(1, x_dim);
 
-z_flux = zeros(1, z_dim);
+for i = 1:x_dim
 
-for i = 1:z_dim
+    in_x_bin = ...
+        detp.p(:,1) >= x_edges(i) & ...
+        detp.p(:,1) < x_edges(i+1);
 
-    in_z_bin = detp.p(:,3) >= z_edges(i) & detp.p(:,3) <  z_edges(i+1);
-    z_flux(i) = sum(detw(selected & in_z_bin));
+    x_signal(i) = sum(detw(selected & in_x_bin));
 end
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Plot
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 figure;
-plot(z_centers, z_flux, '-o');
+plot(x_centers, x_signal, '-o');
 
-xlabel('Z position');
+xlabel('X position (mm)');
 ylabel('Escaping photon weight');
-title('Photon signal along middle of +Y boundary');
-print('PropDetTest1', '-dpng', '-r300');
-
+title('Signal on +Z detector plane');
 grid on;
-drawnow;
 
-% Save plot
-print(gcf, 'PropDetTest1.png', '-dpng', '-r300');
 
 fprintf('Total recorded photons: %d\n', length(detw));
 fprintf('Photons through +Y center strip: %d\n', sum(selected));
