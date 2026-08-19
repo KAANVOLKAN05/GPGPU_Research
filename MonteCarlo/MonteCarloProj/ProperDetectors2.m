@@ -21,7 +21,7 @@ z_src_pos = 50;
 
 x_dim = 100;
 y_dim = 30;
-z_dim = 100;
+z_dim = 150;
 
 volume = ones(x_dim, y_dim, z_dim);
 rand_seed = randi([1 2^31-1],1,1);
@@ -119,7 +119,7 @@ title({myinp{6}, subtitle});
 grid on;
 hold off;
 grid on;
-filename = sprintf('TopDetectorTest_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
+filename = sprintf('TopDetectorTestFarther_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
 print(filename, '-dpng', '-r300');
 
 
