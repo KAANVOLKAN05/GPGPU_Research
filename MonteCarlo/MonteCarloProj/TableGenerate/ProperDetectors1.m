@@ -98,6 +98,7 @@ plot(z_centers, z_flux, '-o');
 xlabel('Z position');
 ylabel('Escaping photon weight');
 title('Photon signal along middle of +Y boundary');
+print('PropDetTest1', '-dpng', '-r300');
 
 grid on;
 
