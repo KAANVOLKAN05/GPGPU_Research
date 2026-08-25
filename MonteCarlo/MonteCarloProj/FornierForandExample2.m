@@ -40,7 +40,7 @@ cfg.prop = [0 0 1 1; mua mus 0.6 1.37];  % Defines the medium properties [mua mu
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
-cfg.nphoton = 1e7;
+cfg.nphoton = 1e6;
 cfg.srcpos = [x_src_pos y_src_pos z_src_pos];
 cfg.srcdir = [0,0,1];
 %cfg.srctype = 'pencil';
@@ -48,7 +48,7 @@ cfg.srcdir = [0,0,1];
 %%%%%%%%%%%%%%%%% MonteCarlo Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
 cfg.tstart = 0; %starting time of the simulation (in seconds)
-cfg.tstep = 5e-10;    %time-gate width of the simulation (in seconds)
+cfg.tstep = 5e-9;    %time-gate width of the simulation (in seconds)
 cfg.tend = 5e-9;      %ending time of the simulation (in second)
 cfg.bc = 'aaaaaa';
 %Below are optional
