@@ -1,4 +1,4 @@
-function [x_bins, x_bin_positions] = BoundaryDetectorFunction(DomainSize, DomainProperties, SourcePosition, FornierForandTable)
+function [x_bins, x_bin_positions] = BoundaryDetectorFunction(DomainSize, DomainProperties, SourcePosition, FornierForandTable, gpuid)
     
     
     cfg.gpuid = gpuid;
@@ -60,10 +60,11 @@ function [x_bins, x_bin_positions] = BoundaryDetectorFunction(DomainSize, Domain
     selected = on_zplus & in_middle_strip;
 
     % Binning the x axis
-    x_bin_positions = 0:1:x_dim;
+    x_edges = 0:1:x_dim;
+    x_bin_positions = x_edges(1:end-1) + 0.5;
     x_photon_intensity = zeros(1, x_dim);
     for i = 1:x_dim
-        in_x_bin = detp.p(:,1) >= x_bin_positions(i) & detp.p(:,1) <  x_bin_positions(i+1);
+        in_x_bin = detp.p(:,1) >= x_edges(i) & detp.p(:,1) <  x_edges(i+1);
         x_photon_intensity(i) = sum(detw(selected & in_x_bin));
     end
     x_bins = x_photon_intensity;
