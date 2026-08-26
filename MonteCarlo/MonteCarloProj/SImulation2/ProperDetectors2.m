@@ -7,21 +7,24 @@ cfg.gpuid = myinp{1};
 cfg.autopilot = 1; %good to keep 1
 
 %%%%%%%%%%%%%%%%% Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The file below loads a struct with the inverse cdf values stored under FFgenerator.invcdf 
 junge = str2num (myinp{2});
 index_of_ref = str2num (myinp{3});
 FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
 disp("Generated Table for Fornier Forand with given parameters")
 
+
+
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-x_src_pos = 1;
-y_src_pos = 15;
-z_src_pos = 50;
+
 
 
 x_dim = 100;
 y_dim = 30;
 z_dim = 150;
+
+x_src_pos = 1;
+y_src_pos = y_dim/2;
+z_src_pos = 50;
 
 volume = ones(x_dim, y_dim, z_dim);
 rand_seed = randi([1 2^31-1],1,1);
@@ -101,33 +104,3 @@ for i = 1:x_dim
 
 end
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Plot
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-figure;
-
-bar(x_centers, x_signal, 1);
-hold on;
-plot(x_centers, x_signal, '-');
-
-xlabel('X position (mm)');
-ylabel('Escaping photon weight');
-subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
-title({myinp{6}, subtitle});
-
-grid on;
-hold off;
-grid on;
-filename = sprintf('TopDetectorTestFarther_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
-print(filename, '-dpng', '-r300');
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Information
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-fprintf('Total recorded photons: %d\n', length(detw));
-fprintf('Photons through +Z center strip: %d\n', sum(selected));
-fprintf('Total weight through +Z center strip: %.8g\n', ...
-        sum(detw(selected)));
