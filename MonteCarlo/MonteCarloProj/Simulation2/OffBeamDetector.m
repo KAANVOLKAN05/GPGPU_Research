@@ -1,10 +1,11 @@
 
 
 
-myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus','Title'},'Please input data!',1,{111111,3.4,1.1,0.003,0.03, "MonteCarlo"})
+myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus','z_dim','Title'},'Please input data!',1,{111111,3.4,1.1,0.003,0.03,100, "MonteCarlo"})
 gpuid = myinp{1};
 mua = str2double(myinp{4});
 mus = str2double(myinp{5});
+z_dim = str2double(myinp{6});
 
 
 
@@ -15,7 +16,7 @@ FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
 disp("Generated Table for Fornier Forand with given parameters")
 
 
-DomainSize = [100,30,100];
+DomainSize = [100,30,z_dim];
 SourcePosition = [1,15,50];
 DomainProperties = [mua, mus, 0.9, 1.2];
 [x_bins, x_bin_positions] = BoundaryDetectorFunction(DomainSize, DomainProperties, SourcePosition, FFgenerator, gpuid);
@@ -31,7 +32,7 @@ plot(x_bin_positions, x_bins, '-');
 xlabel('X position (mm)');
 ylabel('Escaping photon weight');
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
-title({myinp{6}, subtitle});
+title({myinp{7}, subtitle});
 
 grid on;
 hold off;
