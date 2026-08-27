@@ -39,9 +39,9 @@ fclose(fid);
 
 SourcePosition = [1,15,50];
 runNumber = 1;
-for mus = 0:0.005:0.005
-    for mua = 0:0.005:0.005
-        for z_dim = 60:5:100
+for mus = 0:0.0005:0.01
+    for mua = 0.005:0.005:0.1
+        for z_dim = 60:2:100
             % Initializing the run number and parameters
             runID = sprintf('run_%06d', runNumber);
             DomainProperties = [mua, mus, 0.9, 1.2];
