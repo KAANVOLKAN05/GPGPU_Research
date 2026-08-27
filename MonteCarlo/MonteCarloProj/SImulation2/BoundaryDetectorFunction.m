@@ -13,6 +13,7 @@ function [x_bins, x_bin_positions] = BoundaryDetectorFunction(DomainSize, Domain
     volume = ones(x_dim, y_dim, z_dim);
     cfg.vol =  uint8(volume); %Defines the size of the volume
     cfg.unitinmm = 1;
+    rand_seed = randi([1 2^31-1],1,1);
 
 
     % Setting the source position
@@ -35,7 +36,7 @@ function [x_bins, x_bin_positions] = BoundaryDetectorFunction(DomainSize, Domain
     cfg.tend = 5e-9;      %ending time of the simulation (in second)
     cfg.bc = 'aaaaaa000101';   %Makes all the walls absorbant and +Z and +Y record exiting photons
     cfg.savedetflag = 'dpxv'; %Requests the data of the exiting photons are saved
-
+    cfg.seed = rand_seed;
     % define phase function using cfg.invcdf
     cfg.invcdf = FornierForandTable.invcdf;
 
