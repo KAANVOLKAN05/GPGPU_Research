@@ -34,7 +34,7 @@ for i = 1:length(unique_mus)
 
     current_mus = unique_mus(i);
 
-    figure;
+    figure('visible', 'off');
     hold on;
 
     for j = 1:length(unique_mua)
@@ -74,5 +74,8 @@ for i = 1:length(unique_mus)
 
     grid on;
     hold off;
+    filename_out = sprintf('WeightedMedian_mus_%.4f.png', current_mus);
+    print(filename_out, '-dpng', '-r300');
+    close(gcf);
 
 end
