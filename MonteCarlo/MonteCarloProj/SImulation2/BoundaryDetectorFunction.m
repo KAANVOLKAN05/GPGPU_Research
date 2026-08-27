@@ -4,7 +4,7 @@ function [x_bins, x_bin_positions] = BoundaryDetectorFunction(DomainSize, Domain
     cfg.gpuid = gpuid;
     cfg.autopilot = 1;
     cfg.nphoton = 1e7;
-    cfg.maxdetphoton = 2e6;
+    cfg.maxdetphoton = 3e6;
 
     % Setting the domain size
     x_dim = DomainSize(1);
