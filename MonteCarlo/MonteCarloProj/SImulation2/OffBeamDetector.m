@@ -38,6 +38,7 @@ hold off;
 grid on;
 filename = sprintf('TopDetectorTestFarther_%.3f_n_%.3f_mua_%.6g_mus_%.6g.png',junge, index_of_ref, mua, mus);
 print(filename, '-dpng', '-r300');
+disp("Final")
 
 
 
