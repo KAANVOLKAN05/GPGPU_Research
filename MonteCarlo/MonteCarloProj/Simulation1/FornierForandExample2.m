@@ -80,6 +80,9 @@ imagesc(plotdata);
 axis image; % Makes units on the x and y axis equally spaced
 colorbar; % Adds a color scale beside the image
 
+cb = colorbar;
+ylabel(cb, 'log_{10}(Fluence)');
+
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
 title({
     'Fluence over space'
