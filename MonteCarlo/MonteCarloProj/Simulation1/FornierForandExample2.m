@@ -78,9 +78,14 @@ disp('AFTER SUM');
 plotdata = squeeze(log10(total_flux(:, 250, :)));
 imagesc(plotdata);
 axis image; % Makes units on the x and y axis equally spaced
-%colorbar; % Adds a color scale beside the image
-title('Template');
-print('Template.png', '-dpng', '-r300');
+colorbar; % Adds a color scale beside the image
+
+subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
+title({
+    'Fluence over space'
+    subtitle
+});
+print('FluenceOverSpace.png', '-dpng', '-r300');
 
 %%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -98,9 +103,10 @@ end
 
 xlabel('Angle (degrees)');
 ylabel('log(Fluence)');
+subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
 title({
     'Fluence vs Angle at Different Radii'
-    'n = 1.080, \mu = 3.483, mua = 0.1, mus = 0.3'
+    subtitle
 });
 legend('show');
 grid on;
