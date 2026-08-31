@@ -36,7 +36,7 @@ rand_seed = randi([1 2^31-1],1,1);
 cfg.vol =  uint8(volume); %Defines the size of the volume
 mua = str2double(myinp{4});
 mus = str2double(myinp{5});
-cfg.prop = [0 0 1 1; mua mus 0.6 1.37];  % Defines the medium properties [mua mus g n], the first one is backround, it is often just set to [0 0 1 1], and does not do anything
+cfg.prop = [0 0 1 1; mua mus 0.94 1.37];  % Defines the medium properties [mua mus g n], the first one is backround, it is often just set to [0 0 1 1], and does not do anything
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
