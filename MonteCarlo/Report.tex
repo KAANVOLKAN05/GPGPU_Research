@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Water Turbidity Results-- Outline}
+\author{Kaan Volkan}
+\date{August 2026}
+
+\begin{document}
+
+\maketitle
+
+This report provides data on in silica measurements of photon scattering in turbid water. It utilizes Monte Carlo Extreme[] (MCX) to simulate photons in medium with varying turbidity levels. This report serves to fill the gap in literature between instrumentation design, optimization, and standardization of optical turbidity sensors.  
+\section{Background}
+Turbidity is a measure of the haziness of a fluid due to particulates within it.It serves as a strong indicator of suspended solids in water. Nephelometric Turbidity Unit, NTU, is the standard measurement unit for turbidity and represents the how much light scatters 90 degrees from the beamline. There is no direct conversion between turbidity and scattering coefficient because turbidity measures the 90 degree reflection only.
+
+Measurements of turbidity are important due to a host of reasons given in [][][]. One of these resources discusses the reduction of shallow water vegetation due to the highly turbid waters in Chesapeake bay. It is important to keep track of water turbidity to understand the change in water sediment levels, phytoplankton levels, and take preemptive action to prevent long lasting harm. 
+
+\subsection{Instrumentation background}
+
+The Secchi Disk is a 30 cm black and white disk. A string is attached to the disk and is lowered into the water. When the visibility of the water odes not allow for distinguishing between the black and the white sections of the disk, the depth is recorded. This depth is related to the turbidity. 
+
+Most modern turbidity meters have a light source and a detector photo-diode positioned 90 degrees from the light source. Some meters also have a detector at 180 in order to measure the transmittance loss alongside the scattering. 
+% Drawing undreneath the explanation
+
+\section{Theory}
+    %Keep in mind to talka botu why it is important to hae the monte carlo. 
+    \subsection{Scattering and Absorption}
+    As a bulk property of matter, absorption refers to the reduction of intensity light experiences as it passes through a material. Scattering refers to a redirection of light. These parameters of matter are classified by the two coefficients $\mu_a$, the absorption coefficient and $\mu_s$, the scattering coefficient.
+
+    Below are three monte carlo simulations of a pencil light source facing the right way in three types of medium with the same junge, n, and  $\mu_s$ parameters and different absorption parameters.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.32\textwidth]{Figures/FluenceOverSpace4.png}
+        \includegraphics[width=0.32\textwidth]{Figures/FluenceOverSpace5.png}
+        \includegraphics[width=0.32\textwidth]{Figures/FluenceOverSpace6.png}
+    \caption{Comparison of different  $\mu_a$ }
+    \end{figure}
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.32\textwidth]{Figures/HGtest4.png}
+        \includegraphics[width=0.32\textwidth]{Figures/HGtest5.png}
+        \includegraphics[width=0.32\textwidth]{Figures/HGtest6.png}
+    \caption{Comparison of intensity at radii for differant $\mu_a$  }
+    \end{figure}
+
+    Below are three monte carlo simulations of a pencil light source facing the right way in three types of medium with the same junge, n, and  $\mu_a$ parameters and different scattering parameters.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.32\textwidth]{Figures/FluenceOverSpace7.png}
+        \includegraphics[width=0.32\textwidth]{Figures/FluenceOverSpace8.png}
+        \includegraphics[width=0.32\textwidth]{Figures/FluenceOverSpace9.png}
+    \caption{Comparison of different  $\mu_a$ }
+    \end{figure}
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.32\textwidth]{Figures/HGtest7.png}
+        \includegraphics[width=0.32\textwidth]{Figures/HGtest8.png}
+        \includegraphics[width=0.32\textwidth]{Figures/HGtest9.png}
+    \caption{Comparison of intensity at radii for differant $\mu_a$  }
+    \end{figure}
+    
+    \subsection{Scattering Functions}
+    The junge and n parameters in the above graphs concerns the Volume Scattering Function (VSF). Volume scattering functions serves to decide which direction a scattered particle moves towards upon a scattering event. In this report we utilize the Fornier Forand Phase Function as it approximates Petzold's turbid water measurements. These Petzold measurements are landmark measurements of how photons scatter in turbid water. The 2 parameters defining the Fornier Forand Model are junge and n. junge parameter...
+
+    
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.32\textwidth]{Figures/Screenshot 2026-08-31 074823.png}
+        \includegraphics[width=0.32\textwidth]{Figures/Screenshot 2026-08-31 074800.png}
+    \caption{Comparison of}
+    \end{figure}
+\begin{itemize}
+    \item Fornier Forangd
+    \item Scattering in Water
+\end{itemize}
+\section{Computation}
+\begin{itemize}
+    \item Using MCX
+    \item Value Tables the json
+\end{itemize}
+\section{Results}
+\begin{itemize}
+    \item Plots
+    \item Analysis of plots
+\end{itemize}
+\section{Discussion}
+\begin{itemize}
+    \item Comparioson with known cases
+    \item Sanity Tests
+\end{itemize}
+\section{Conclusions and Summary}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+
+\end{document}
