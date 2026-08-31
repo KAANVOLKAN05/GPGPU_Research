@@ -82,7 +82,7 @@ colorbar; % Adds a color scale beside the image
 
 cb = colorbar;
 ylabel(cb, 'log_{10}(Fluence)');
-caxis([-15 10]);   % fixed color range for every graph
+caxis([-15 8]);   % fixed color range for every graph
 
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
 title({
