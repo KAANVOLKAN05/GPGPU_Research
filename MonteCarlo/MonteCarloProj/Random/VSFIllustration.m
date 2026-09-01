@@ -22,7 +22,7 @@ y = B(x);
 
 figure;
 %plot(x, y, 'LineWidth', 1.5);
-semilogy(x, y, 'LineWidth', 1.5);
+loglog(x, y, 'LineWidth', 1.5);
 xlabel('x (radians)');
 ylabel('B(x)');
 title('Fournier-Forand Phase Function');
