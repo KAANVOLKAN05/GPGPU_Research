@@ -1,6 +1,13 @@
 u = 4.9;
 n = 0.9;
+g = 0.9345;
 
+%% Henyey-Greenstein
+HG = @(x) (1 / (4*pi)) .* ...
+    (1 - g^2) ./ ...
+    (1 + g^2 - 2*g.*cos(x)).^(3/2);
+
+%% Fournier-Forand
 v = (3 - u) / 2;
 
 s = @(x) (4 / (3 * (n - 1)^2)) .* sin(x / 2).^2;
@@ -15,16 +22,26 @@ B = @(x) ...
     (16*pi * (s(pi) - 1) * s(pi).^v)) .* ...
     (3*cos(x).^2 - 1);
 
-% x in radians
+%% x in radians
 x = linspace(1e-5, pi, 10000);
 
-y = B(x);
+y_FF = B(x);
+y_HG = HG(x);
 
+%% Fournier-Forand Plot
 figure;
-%plot(x, y, 'LineWidth', 1.5);
-loglog(x, y, 'LineWidth', 1.5);
+loglog(x, y_FF, 'LineWidth', 1.5);
 xlabel('x (radians)');
-ylabel('B(x)');
+ylabel('FF(x)');
 title('Fournier-Forand Phase Function');
 grid on;
-xlim([0 pi]);
+xlim([1e-5 pi]);
+
+%% Henyey-Greenstein Plot
+figure;
+loglog(x, y_HG, 'LineWidth', 1.5);
+xlabel('x (radians)');
+ylabel('HG(x)');
+title('Henyey-Greenstein Phase Function');
+grid on;
+xlim([1e-5 pi]);
