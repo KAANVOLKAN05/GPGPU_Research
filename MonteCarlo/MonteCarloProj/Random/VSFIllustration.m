@@ -21,8 +21,8 @@ x = linspace(1e-2, pi, 10000);
 y = B(x);
 
 figure;
-plot(x, y, 'LineWidth', 1.5);
-
+%plot(x, y, 'LineWidth', 1.5);
+semilogy(x, y, 'LineWidth', 1.5);
 xlabel('x (radians)');
 ylabel('B(x)');
 title('Fournier-Forand Phase Function');
