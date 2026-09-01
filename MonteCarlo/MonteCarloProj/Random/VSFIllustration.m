@@ -45,3 +45,15 @@ ylabel('HG(x)');
 title('Henyey-Greenstein Phase Function');
 grid on;
 xlim([1e-5 pi]);
+
+figure;
+loglog(x, y_FF, 'LineWidth', 1.5);
+hold on;
+loglog(x, y_HG, 'LineWidth', 1.5);
+
+xlabel('x (radians)');
+ylabel('Phase Function');
+title('Fournier-Forand vs Henyey-Greenstein');
+legend('Fournier-Forand', 'Henyey-Greenstein');
+grid on;
+xlim([1e-5 pi]);
