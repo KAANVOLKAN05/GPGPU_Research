@@ -16,7 +16,7 @@ B = @(x) ...
     (3*cos(x).^2 - 1);
 
 % x in radians
-x = linspace(1e-4, pi, 10000);
+x = linspace(1e-2, pi, 10000);
 
 y = B(x);
 
