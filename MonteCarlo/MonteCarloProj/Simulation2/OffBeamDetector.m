@@ -16,7 +16,7 @@ FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
 disp("Generated Table for Fornier Forand with given parameters")
 
 
-DomainSize = [400,30,z_dim];
+DomainSize = [500,30,z_dim];
 SourcePosition = [1,15,50];
 DomainProperties = [mua, mus, 0.9, 1.2];
 [x_bins, x_bin_positions] = BoundaryDetectorFunction(DomainSize, DomainProperties, SourcePosition, FFgenerator, gpuid);
