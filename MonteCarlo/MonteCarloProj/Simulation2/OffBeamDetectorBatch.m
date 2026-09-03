@@ -16,7 +16,8 @@ disp("Generated Table for Fornier Forand with given parameters")
 
 
 % Setting up the results folder
-resultsFolder = 'MC_Results';
+%resultsFolder = 'MC_Results';
+resultsFolder = 'MC_Results_v2';
 
 if exist(resultsFolder, 'dir')
     rmdir(resultsFolder, 's');
@@ -24,7 +25,8 @@ end
 dataFolder = fullfile(resultsFolder, 'data');
 mkdir(resultsFolder);
 mkdir(dataFolder);
-summaryFile = fullfile(resultsFolder, 'summary.csv');
+%summaryFile = fullfile(resultsFolder, 'summary.csv');
+summaryFile = fullfile(resultsFolder, 'summary_v2.csv');
 fid = fopen(summaryFile, 'w');
 fprintf(fid, ...
     ['RunID,Junge,n,mua,mus,' ...
@@ -43,7 +45,8 @@ for mus = 0.01:0.01:0.1
     for mua = 0.001:0.0005:0.005
         for z_dim = 60:5:100
             % Initializing the run number and parameters
-            runID = sprintf('run_%06d', runNumber);
+            %runID = sprintf('run_%06d', runNumber);
+            runID = sprintf('run_v2_%06d', runNumber);
             DomainProperties = [mua, mus, 0.9, 1.2];
             DomainSize = [500,30,z_dim];
 
