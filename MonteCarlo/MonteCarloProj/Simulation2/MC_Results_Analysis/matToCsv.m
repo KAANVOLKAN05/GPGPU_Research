@@ -3,7 +3,7 @@ clc;
 
 scriptDir = fileparts(mfilename('fullpath'));
 
-matFolder = fullfile(scriptDir, '..', 'MC_Results_v2', 'data_v2');
+matFolder = fullfile(scriptDir, '..', 'MC_Results_v2', 'data');
 outputFolder = fullfile(scriptDir, '..', 'MC_Results_v2', 'runs');
 
 if ~exist(outputFolder, 'dir')
