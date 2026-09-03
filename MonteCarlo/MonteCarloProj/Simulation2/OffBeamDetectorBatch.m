@@ -45,7 +45,7 @@ for mus = 0.01:0.01:0.1
             % Initializing the run number and parameters
             runID = sprintf('run_%06d', runNumber);
             DomainProperties = [mua, mus, 0.9, 1.2];
-            DomainSize = [100,30,z_dim];
+            DomainSize = [500,30,z_dim];
 
             % Running the Sim
             fprintf('Run %d: mus=%.4f, mua=%.4f, z=%d\n',runNumber, mus, mua, z_dim);
