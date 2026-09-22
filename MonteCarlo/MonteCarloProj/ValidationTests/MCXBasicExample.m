@@ -57,20 +57,20 @@ cwdref = sum(flux.dref, 4); % not reaaly needed cuz I have 1 gate but just in ca
 %%
 R_mcx = sum(sum(abs(cwdref(:,:,1))));
 T_mcx = sum(sum(abs(cwdref(:,:,end))));
-absorbed_fraction = sum(sum(sum(flux.data,4))) * mua * 5e-9;
+%absorbed_fraction = sum(sum(sum(flux.data,4))) * mua * 5e-9;
 
 R_mcx_fraction = R_mcx * 5e-9;
 T_mcx_fraction = T_mcx * 5e-9;
-Confirmation_number = R_mcx_fraction + T_mcx_fraction + absorbed_fraction;
+%Confirmation_number = R_mcx_fraction + T_mcx_fraction + absorbed_fraction;
 
-N = 1e7;
-SE_R = sqrt(R_mcx_fraction * (1 - R_mcx_fraction) / N);
-SE_T = sqrt(T_mcx_fraction * (1 - T_mcx_fraction) / N);
+%N = 1e7;
+%SE_R = sqrt(R_mcx_fraction * (1 - R_mcx_fraction) / N);
+%SE_T = sqrt(T_mcx_fraction * (1 - T_mcx_fraction) / N);
 
 % Display results
 disp(R_mcx_fraction);
-disp(SE_R);
+%disp(SE_R);
 disp(T_mcx_fraction);
-disp(SE_T);
-disp(absorbed_fraction);
-disp(Confirmation_number);
+%disp(SE_T);
+%disp(absorbed_fraction);
+%disp(Confirmation_number);
