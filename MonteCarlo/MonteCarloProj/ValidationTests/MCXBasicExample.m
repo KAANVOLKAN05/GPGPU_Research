@@ -60,8 +60,9 @@ T_mcx = sum(sum(abs(cwdref(:,:,end))));
 
 R_mcx_fraction = R_mcx * cfg.tstep;
 T_mcx_fraction = T_mcx * cfg.tstep;
+absorbed_fraction = sum(sum(sum(flux.data,4))) * mua * cfg.tstep;
+Confirmation_number = R_mcx_fraction + T_mcx_fraction + absorbed_fraction;
 
-Confirmation_number = R_mcx_fraction + T_mcx_fraction;
 
 N = cfg.nphoton;
 SE_R = sqrt(R_mcx_fraction * (1 - R_mcx_fraction) / N);
@@ -71,6 +72,7 @@ SE_T = sqrt(T_mcx_fraction * (1 - T_mcx_fraction) / N);
 
 disp(R_mcx_fraction);
 disp(T_mcx_fraction);
+disp(absorbed_fraction);
 disp(Confirmation_number);
 
 fprintf('R_mcx = %.6f ± %.6f (SE)\n', R_mcx_fraction, SE_R);
