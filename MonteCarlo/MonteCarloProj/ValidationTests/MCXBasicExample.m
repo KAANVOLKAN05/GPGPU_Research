@@ -55,6 +55,7 @@ cfg.issaveref = 1;
 cwdref = sum(flux.dref, 4); % not reaaly needed cuz I have 1 gate but just in case
 
 %%
+%%
 R_mcx = sum(sum(abs(cwdref(:,:,1))));
 T_mcx = sum(sum(abs(cwdref(:,:,end))));
 
@@ -63,14 +64,14 @@ T_mcx_fraction = T_mcx * cfg.tstep;
 absorbed_fraction = sum(sum(sum(flux.data,4))) * mua * cfg.tstep;
 Confirmation_number = R_mcx_fraction + T_mcx_fraction + absorbed_fraction;
 
-
 N = cfg.nphoton;
 SE_R = sqrt(R_mcx_fraction * (1 - R_mcx_fraction) / N);
 SE_T = sqrt(T_mcx_fraction * (1 - T_mcx_fraction) / N);
 
-%Display results
-
-fprintf('R_mcx         = %.6f ± %.6f (SE)\n', R_mcx_fraction, SE_R);
-fprintf('T_mcx         = %.6f ± %.6f (SE)\n', T_mcx_fraction, SE_T);
-fprintf('Absorbed      = %.6f\n', absorbed_fraction);
-fprintf('Confirmation  = %.6f  (should be ≈ 1.0)\n', Confirmation_number);
+% Display results
+disp(R_mcx_fraction);
+disp(SE_R);
+disp(T_mcx_fraction);
+disp(SE_T);
+disp(absorbed_fraction);
+disp(Confirmation_number);
