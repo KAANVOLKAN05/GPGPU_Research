@@ -1,4 +1,4 @@
-myinp = inputdlg({'GPUs to use','anistropy', 'mua', 'mus'},'Please input data!',1,{111111,0.8,0.03,0.003})
+myinp = inputdlg({'GPUs to use','anistropy', 'mua', 'mus'},'Please input data!',1,{111111,0.8,0.003,0.03})
 
 
 %%%GPU SETTINGS%%%
@@ -40,7 +40,7 @@ cfg.srcdir = [0,0,1];
 cfg.tstart = 0; %starting time of the simulation (in seconds)
 cfg.tstep = 5e-9;    %time-gate width of the simulation (in seconds)
 cfg.tend = 5e-9;      %ending time of the simulation (in second)
-cfg.bc = 'ccacca'  % sides are cyclic ends are absorbing
+cfg.bc = 'ccacca';  % sides are cyclic ends are absorbing
 cfg.seed = rand_seed;
 
 
