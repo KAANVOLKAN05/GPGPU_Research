@@ -70,11 +70,7 @@ SE_T = sqrt(T_mcx_fraction * (1 - T_mcx_fraction) / N);
 
 %Display results
 
-disp(R_mcx_fraction);
-disp(T_mcx_fraction);
-disp(absorbed_fraction);
-disp(Confirmation_number);
-
-fprintf('R_mcx = %.6f ± %.6f (SE)\n', R_mcx_fraction, SE_R);
-fprintf('T_mcx = %.6f ± %.6f (SE)\n', T_mcx_fraction, SE_T);
-
+fprintf('R_mcx         = %.6f ± %.6f (SE)\n', R_mcx_fraction, SE_R);
+fprintf('T_mcx         = %.6f ± %.6f (SE)\n', T_mcx_fraction, SE_T);
+fprintf('Absorbed      = %.6f\n', absorbed_fraction);
+fprintf('Confirmation  = %.6f  (should be ≈ 1.0)\n', Confirmation_number);
