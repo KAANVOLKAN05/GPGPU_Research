@@ -58,8 +58,15 @@ cwdref = sum(flux.dref, 4); % not reaaly needed cuz I have 1 gate but just in ca
 R_mcx = sum(sum(abs(cwdref(:,:,1))));
 T_mcx = sum(sum(abs(cwdref(:,:,end))));
 
+R_mcx_fraction = R_mcx * cfg.tstep;
+T_mcx_fraction = T_mcx * cfg.tstep;
+
+Confirmation_number = R_mcx_fraction + T_mcx_fraction;
+
+
 %Display results
 
-disp(R_mcx);
-disp(T_mcx);
+disp(R_mcx_fraction);
+disp(T_mcx_fraction);
+disp(Confirmation_number);
 
