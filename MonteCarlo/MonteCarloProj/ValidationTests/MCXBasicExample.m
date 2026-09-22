@@ -63,7 +63,7 @@ R_mcx_fraction = R_mcx * 5e-9;
 T_mcx_fraction = T_mcx * 5e-9;
 %Confirmation_number = R_mcx_fraction + T_mcx_fraction + absorbed_fraction;
 
-%N = 1e7;
+N = 1e7;
 SE_R = sqrt(R_mcx_fraction * (1 - R_mcx_fraction) / N);
 SE_T = sqrt(T_mcx_fraction * (1 - T_mcx_fraction) / N);
 
