@@ -55,8 +55,8 @@ cfg.issaveref = 1;
 cwdref = sum(flux.dref, 4); % not reaaly needed cuz I have 1 gate but just in case
 
 %%
-R_mcx = sum(abs(cwdref(:,:,1)),   'all');   % total reflectance
-T_mcx = sum(abs(cwdref(:,:,end)), 'all');   % total transmittance
+R_mcx = sum(sum(abs(cwdref(:,:,1))));
+T_mcx = sum(sum(abs(cwdref(:,:,end))));
 
 %Display results
 
