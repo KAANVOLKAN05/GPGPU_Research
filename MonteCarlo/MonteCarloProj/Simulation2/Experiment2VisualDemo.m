@@ -74,7 +74,7 @@ total_flux = sum(fluxs.data, 4);
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %figure;  %Opens a new figure window and makes it the active plotting window
-figure('Position', [100, 100, 1200, 700]);
+figure('Position', [100, 100, 1200, 900]);
 plotdata = squeeze(log10(total_flux(:, y_src_pos, :)));
 z_mm = (1:z_dim) * voxel_size;
 x_mm = (1:x_dim) * voxel_size;
