@@ -18,7 +18,7 @@ disp("Generated Table for Fornier Forand with given parameters")
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 x_src_pos = 10;
 y_src_pos = 10;
-z_src_pos = 1;
+z_src_pos = 0;
 
 x_dim = 20;
 y_dim = 20;
