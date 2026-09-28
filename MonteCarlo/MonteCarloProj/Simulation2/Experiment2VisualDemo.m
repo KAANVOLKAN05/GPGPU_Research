@@ -16,13 +16,16 @@ FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
 disp("Generated Table for Fornier Forand with given parameters")
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-x_src_pos = 20;
-y_src_pos = 20;
-z_src_pos = 1;
 
-x_dim = 40;
-y_dim = 40;
-z_dim = 80;
+voxel_size = 0.2;  % mm per voxel
+
+x_src_pos = 20 / voxel_size;
+y_src_pos = 20 / voxel_size;
+z_src_pos = 1 / voxel_size;
+
+x_dim = 40 / voxel_size;
+y_dim = 40 / voxel_size;
+z_dim = 80 / voxel_size;
 
 volume = ones(x_dim, y_dim, z_dim);
 rand_seed = randi([1 2^31-1],1,1);
@@ -50,6 +53,7 @@ cfg.tend = 5e-9;      %ending time of the simulation (in second)
 cfg.bc = 'aaaaaa';
 %Below are optional
 cfg.seed = rand_seed;
+cfg.unitinmm = voxel_size;
 
 
 
