@@ -85,7 +85,7 @@ xlabel('x axis (mm)');
 ylabel('y axis (mm)');
 cb = colorbar;
 ylabel(cb, 'log_{10}(Fluence)');
-caxis([5 7]);   % fixed color range for every graph
+caxis([4 7]);   % fixed color range for every graph
 
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
 title({
