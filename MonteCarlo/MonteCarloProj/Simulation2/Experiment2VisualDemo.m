@@ -88,28 +88,3 @@ set(gca, 'Position', [0.13 0.10 0.70 0.78]);
 print('Experiment2Visualision.png', '-dpng', '-r300');
 
 %%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-// radii = [50, 80, 120, 150];
-
-// figure;
-// hold on;
-
-// for radius = radii
-
-//     [idx, theta, I, R] = fullCircle2D(total_flux, [250 250 250], [0 0 1], radius, 1);
-//     logI = log10(I);
-//     scatter(theta, logI, 'DisplayName', sprintf('Radius = %d', radius));
-// end
-
-// xlabel('Angle (degrees)');
-// ylabel('log(Fluence)');
-// subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
-// title({
-//     'Fluence vs Angle at Different Radii'
-//     subtitle
-// });
-// legend('show');
-// grid on;
-// hold off;
-
-// print('HGtest.png', '-dpng', '-r300');
