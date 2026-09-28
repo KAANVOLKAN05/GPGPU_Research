@@ -16,12 +16,12 @@ FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
 disp("Generated Table for Fornier Forand with given parameters")
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-x_src_pos = 15;
-y_src_pos = 15;
-z_src_pos = 0;
+x_src_pos = 20;
+y_src_pos = 20;
+z_src_pos = 1;
 
-x_dim = 30;
-y_dim = 30;
+x_dim = 40;
+y_dim = 40;
 z_dim = 80;
 
 volume = ones(x_dim, y_dim, z_dim);
@@ -37,7 +37,7 @@ cfg.prop = [0 0 1 1; mua mus 0.94 1.37];  % Defines the medium properties [mua m
 
 %%%%%%%%%%%%%%%%% Source Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Below are required
-cfg.nphoton = 1e8;
+cfg.nphoton = 1e7;
 cfg.srcpos = [x_src_pos y_src_pos z_src_pos];
 cfg.srcdir = [0,0,1];
 %cfg.srctype = 'pencil';
