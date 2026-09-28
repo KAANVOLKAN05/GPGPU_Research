@@ -77,14 +77,12 @@ colorbar; % Adds a color scale beside the image
 
 cb = colorbar;
 ylabel(cb, 'log_{10}(Fluence)');
-caxis([-10 5]);   % fixed color range for every graph
+caxis([-10 10]);   % fixed color range for every graph
 
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
 title({
     'Fluence over space'
     subtitle
 });
-set(gca, 'Position', [0.13 0.10 0.70 0.78]);
+%set(gca, 'Position', [0.13 0.10 0.70 0.78]);
 print('Experiment2Visualision.png', '-dpng', '-r300');
-
-%%%%%%%%%%%%%%%%% Data Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
