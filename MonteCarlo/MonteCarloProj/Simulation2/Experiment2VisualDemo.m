@@ -19,12 +19,12 @@ disp("Generated Table for Fornier Forand with given parameters")
 
 voxel_size = 0.2;  % mm per voxel
 
-x_src_pos = 15 / voxel_size;
-y_src_pos = 15 / voxel_size;
+x_src_pos = 10 / voxel_size;
+y_src_pos = 10 / voxel_size;
 z_src_pos = 1 / voxel_size;
 
-x_dim = 30 / voxel_size;
-y_dim = 30 / voxel_size;
+x_dim = 20 / voxel_size;
+y_dim = 20 / voxel_size;
 z_dim = 80 / voxel_size;
 
 volume = ones(x_dim, y_dim, z_dim);
