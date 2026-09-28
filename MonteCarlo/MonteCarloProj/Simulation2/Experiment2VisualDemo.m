@@ -94,4 +94,4 @@ title({
     subtitle
 });
 %set(gca, 'Position', [0.13 0.10 0.70 0.78]);
-print('Experiment2Visualision.png', '-dpng', '-r300');
+print('Experiment2Visualision.png', '-dpng', '-r600');
