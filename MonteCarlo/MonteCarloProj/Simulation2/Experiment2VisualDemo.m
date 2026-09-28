@@ -19,12 +19,12 @@ disp("Generated Table for Fornier Forand with given parameters")
 
 voxel_size = 0.2;  % mm per voxel
 
-x_src_pos = 20 / voxel_size;
-y_src_pos = 20 / voxel_size;
+x_src_pos = 15 / voxel_size;
+y_src_pos = 15 / voxel_size;
 z_src_pos = 1 / voxel_size;
 
-x_dim = 40 / voxel_size;
-y_dim = 40 / voxel_size;
+x_dim = 30 / voxel_size;
+y_dim = 30 / voxel_size;
 z_dim = 80 / voxel_size;
 
 volume = ones(x_dim, y_dim, z_dim);
@@ -86,7 +86,7 @@ ylabel('y axis (mm)');
 xticks(0:5:80);
 cb = colorbar;
 ylabel(cb, 'log_{10}(Fluence)');
-caxis([4 6]);   % fixed color range for every graph
+caxis([4 6.5]);   % fixed color range for every graph
 
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
 title({
