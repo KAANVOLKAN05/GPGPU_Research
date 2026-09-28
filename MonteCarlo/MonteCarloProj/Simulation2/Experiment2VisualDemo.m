@@ -17,7 +17,7 @@ disp("Generated Table for Fornier Forand with given parameters")
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-voxel_size = 1;  % mm per voxel
+voxel_size = 0.2;  % mm per voxel
 
 x_src_pos = 20 / voxel_size;
 y_src_pos = 20 / voxel_size;
@@ -74,7 +74,7 @@ total_flux = sum(fluxs.data, 4);
 %%%%%%%%%%%%%%%%% Personal Plot Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %figure;  %Opens a new figure window and makes it the active plotting window
-plotdata = squeeze(log10(total_flux(:, 20, :)));
+plotdata = squeeze(log10(total_flux(:, y_src_pos, :)));
 imagesc(plotdata);
 axis image; % Makes units on the x and y axis equally spaced
 colorbar; % Adds a color scale beside the image
