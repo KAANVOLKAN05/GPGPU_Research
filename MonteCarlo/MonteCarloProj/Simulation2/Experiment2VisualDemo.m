@@ -17,7 +17,7 @@ disp("Generated Table for Fornier Forand with given parameters")
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-voxel_size = 1;  % mm per voxel
+voxel_size = 0.2;  % mm per voxel
 
 x_src_pos = 20 / voxel_size;
 y_src_pos = 20 / voxel_size;
