@@ -1,5 +1,5 @@
 
-myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus'},'Please input data!',1,{111111,3.56,1.09,0.00021,0.00027})
+myinp = inputdlg({'GPUs to use','Junge','Index of Refraction', 'mua', 'mus'},'Please input data!',1,{111111,3.56,1.09,0.0001,0.3})
 
 %%%GPU SETTINGS%%%
 clear cfg cfgs;
@@ -85,7 +85,7 @@ xlabel('x axis (mm)');
 ylabel('y axis (mm)');
 cb = colorbar;
 ylabel(cb, 'log_{10}(Fluence)');
-caxis([4 7]);   % fixed color range for every graph
+caxis([5 7]);   % fixed color range for every graph
 
 subtitle = sprintf('Junge = %.3f, n = %.3f, mua = %.6g, mus = %.6g', junge, index_of_ref, mua, mus);
 title({
