@@ -19,12 +19,12 @@ disp("Generated Table for Fornier Forand with given parameters")
 
 voxel_size = 0.2;  % mm per voxel
 
-x_src_pos = 10 / voxel_size;
-y_src_pos = 10 / voxel_size;
+x_src_pos = 15 / voxel_size;
+y_src_pos = 15 / voxel_size;
 z_src_pos = 1 / voxel_size;
 
-x_dim = 20 / voxel_size;
-y_dim = 20 / voxel_size;
+x_dim = 30 / voxel_size;
+y_dim = 30 / voxel_size;
 z_dim = 80 / voxel_size;
 
 volume = ones(x_dim, y_dim, z_dim);
@@ -84,7 +84,7 @@ imagesc(z_mm, x_mm, plotdata);
 axis image; % Makes units on the x and y axis equally spaced
 colorbar; % Adds a color scale beside the image
 xlabel('x axis (mm)');
-ylabel('y axis (mm)');
+ylabel('z axis (mm)');
 xticks(0:5:80);
 cb = colorbar;
 ylabel(cb, 'log_{10}(Fluence)');
