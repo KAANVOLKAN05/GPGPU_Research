@@ -80,7 +80,8 @@ z_mm = (1:z_dim) * voxel_size;
 x_mm = (1:x_dim) * voxel_size;
 
 imagesc(z_mm, x_mm, plotdata);
-axis image; % Makes units on the x and y axis equally spaced
+axis normal;
+%axis image; % Makes units on the x and y axis equally spaced
 colorbar; % Adds a color scale beside the image
 xlabel('x axis (mm)');
 ylabel('y axis (mm)');
