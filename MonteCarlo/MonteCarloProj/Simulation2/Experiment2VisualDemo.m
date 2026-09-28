@@ -16,13 +16,13 @@ FFgenerator = FornierForandTableGenerator(junge, index_of_ref);
 disp("Generated Table for Fornier Forand with given parameters")
 
 %%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-x_src_pos = 15;
-y_src_pos = 15;
+x_src_pos = 10;
+y_src_pos = 10;
 z_src_pos = 1;
 
-x_dim = 30;
-y_dim = 30;
-z_dim = 100;
+x_dim = 20;
+y_dim = 20;
+z_dim = 50;
 
 volume = ones(x_dim, y_dim, z_dim);
 rand_seed = randi([1 2^31-1],1,1);
