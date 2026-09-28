@@ -74,7 +74,8 @@ plotdata = squeeze(log10(total_flux(:, 15, :)));
 imagesc(plotdata);
 axis image; % Makes units on the x and y axis equally spaced
 colorbar; % Adds a color scale beside the image
-
+xlabel('x axis (mm)');
+ylabel('y axis (mm)');
 cb = colorbar;
 ylabel(cb, 'log_{10}(Fluence)');
 %caxis([-5 8]);   % fixed color range for every graph
