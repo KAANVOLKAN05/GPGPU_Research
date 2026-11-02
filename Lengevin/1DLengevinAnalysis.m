@@ -1,7 +1,7 @@
 
 
 % This code is AI written, I claim no originality beyond telliing it to make it according to the inptu file
-T = 0.5;                                  % must match --temp
+T = 0.005;                                  % must match --temp
 x = load("positions.txt");                % skips lines starting with #
 
 V = @(x) (x.^2 - 1).^2;
