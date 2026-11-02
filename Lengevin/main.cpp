@@ -3,7 +3,7 @@
 
 double langevinStep(double xPos, double dt, double noiseCoef, double randomNumber);
 
-double gradV(double xPos)
+double gradV(double xPos);
 
 int main(int argc, char* argv[]) {
     double xPos = 0.0;
