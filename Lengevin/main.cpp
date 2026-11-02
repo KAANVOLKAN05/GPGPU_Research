@@ -13,13 +13,22 @@ int main(int argc, char* argv[]) {
     double dt = 0.01;
     double tMax = 100.0;
     double temp = 0.5;
-    double nParticles = 100;
+    double nParticles = 100000;
 
     
     for (int i = 1; i < argc; ++i) {
         std::string flag = argv[i];
 
-        if (flag == "--xPos" && i + 1 < argc) {
+        if (flag == "--help" || flag == "-h") {
+            std::cout << "Usage: " << argv[0] << " [options]\n"
+                << "  --xPos <value>        starting position (default " << xPos << ")\n"
+                << "  --dt <value>          time step (default " << dt << ")\n"
+                << "  --tMax <value>        simulation time per particle (default " << tMax << ")\n"
+                << "  --temp <value>        temperature (default " << temp << ")\n"
+                << "  --nParticles <value>  number of particles (default " << nParticles << ")\n"
+                << "  --help, -h            show this message\n";
+            return 0;
+        } else if (flag == "--xPos" && i + 1 < argc) {
             xPos = std::stod(argv[++i]);
         } else if (flag == "--dt" && i + 1 < argc) {
             dt = std::stod(argv[++i]);
