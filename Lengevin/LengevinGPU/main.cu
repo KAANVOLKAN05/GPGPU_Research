@@ -4,6 +4,8 @@
 #include <random>
 #include <iomanip>
 
+
+//very small change implemented
 __device__ double langevinStep(double xPos, double dt, double noiseCoef, double randomNumber);
 
 __device__ double gradV(double xPos);
