@@ -1,3 +1,6 @@
+
+
+% This code is AI written, I claim no originality beyond telliing it to make it according to the inptu file
 T = 0.5;                                  % must match --temp
 x = load("positions.txt");                % skips lines starting with #
 
