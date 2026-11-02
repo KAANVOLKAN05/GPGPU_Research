@@ -2,7 +2,7 @@
 
 % This code is AI written, I claim no originality beyond telliing it to make it according to the inptu file
 T = 0.5;                                  % must match --temp
-x = load("positions_GPU.txt");                % skips lines starting with #
+x = load("positions_gpu.txt");                % skips lines starting with #
 
 V = @(x) (x.^2 - 1).^2;
 Z = quadgk(@(x) exp(-V(x) / T), -Inf, Inf);
