@@ -4,9 +4,10 @@
 #include <random>
 #include <iomanip>
 #include <vector>
+#include <curand_kernel.h>
 
 
-__global__ void testKernel(double* out, int nParticles);
+__global__ void langevinKernel(double* out, int nParticles, double x0, double dt, double noiseCoef, long long nSteps, unsigned long long seed);
 
 __device__ double langevinStep(double xPos, double dt, double noiseCoef, double randomNumber);
 
@@ -18,6 +19,8 @@ int main(int argc, char* argv[]) {
     double tMax = 100.0;
     double temp = 0.5;
     int nParticles = 100000;
+    unsigned long long seed = 42;
+
 
     //Following section is for user flags
     for (int i = 1; i < argc; ++i) {
@@ -54,7 +57,10 @@ int main(int argc, char* argv[]) {
 
     int threadsPerBlock = 256;
     int blocks = (nParticles + threadsPerBlock - 1) / threadsPerBlock;
-    testKernel<<<blocks, threadsPerBlock>>>(d_out, nParticles);
+
+    double noiseCoef = std::sqrt(2.0 * temp * dt);
+    long long nSteps = std::llround(tMax / dt);
+    langevinKernel<<<blocks, threadsPerBlock>>>(d_out, nParticles, xPos, dt, noiseCoef, nSteps, seed);
 
 
     std::vector<double> out(nParticles); //setting up memory on the CPU side
@@ -80,9 +86,17 @@ __device__ double langevinStep(double xPos, double dt, double noiseCoef, double 
     return xPos - dt * gradV(xPos) + noiseCoef * randomNumber;
 };
 
-__global__ void testKernel(double* out, int nParticles) {
-    int i = blockIdx.x * blockDim.x + threadIdx.x;  // this thread's global index
-    if (i < nParticles) {                                    // skip spare threads past the end
-        out[i] = gradV(i * 0.1);                    // something easy to check
+
+__global__ void langevinKernel(double* out, int nParticles, double x0, double dt, double noiseCoef, long long nSteps, unsigned long long seed) {
+    int i = blockIdx.x * blockDim.x + threadIdx.x;
+    if (i >= nParticles) return;
+    curandStatePhilox4_32_10_t state;
+    curand_init(seed, i, 0, &state);
+
+    double x = x0;                                       // start position
+    for (long long s = 0; s < nSteps; s++) {
+        double r = curand_normal_double(&state); // random num
+        x = langevinStep(x, dt, noiseCoef, r);
     }
+    out[i] = x;
 }
