@@ -65,8 +65,12 @@ int main(int argc, char* argv[]) {
 
     std::vector<double> out(nParticles); //setting up memory on the CPU side
     cudaMemcpy(out.data(), d_out, nParticles * sizeof(double), cudaMemcpyDeviceToHost);
-    for (int i = 0; i < 20; i++) {
-    std::cout << i << ' ' << out[i] << '\n';
+    std::cout << "# xPos = " << xPos << ", dt = " << dt << ", tMax = " << tMax
+          << ", temp = " << temp << ", nParticles = " << nParticles
+          << ", seed = " << seed << '\n';
+    std::cout << std::setprecision(10);
+    for (int i = 0; i < nParticles; i++) {
+        std::cout << out[i] << '\n';
     }
 
     cudaFree(d_out);
