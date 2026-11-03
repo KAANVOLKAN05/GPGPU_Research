@@ -83,7 +83,7 @@ __device__ double gradV1(double xPos) {
 };
 // Gradient of the 1D double well V(x) = -a^2/2 + bx^4/4, a = 2, b = 1
 __device__ double gradV2(double xPos) {
-    return 2 * xPos - 1 * xPos ** 3;
+    return 2 * xPos - 1 * xPos * xPos * xPows;
 };
 
 __device__ double langevinStep(double xPos, double dt, double noiseCoef, double randomNumber){
