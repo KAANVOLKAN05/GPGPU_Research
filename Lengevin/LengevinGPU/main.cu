@@ -75,19 +75,19 @@ int main(int argc, char* argv[]) {
 
     cudaFree(d_out);
     return 0;
-
-    
-
-
 }
 
 // Gradient of the 1D double well V(x) = (x^2 - 1)^2
-__device__ double gradV(double xPos) {
+__device__ double gradV1(double xPos) {
     return 4.0 * xPos * (xPos * xPos - 1.0);
+};
+// Gradient of the 1D double well V(x) = -a^2/2 + bx^4/4, a = 2, b = 1
+__device__ double gradV2(double xPos) {
+    return 2 * xPos - 1 * xPos ** 3;
 };
 
 __device__ double langevinStep(double xPos, double dt, double noiseCoef, double randomNumber){
-    return xPos - dt * gradV(xPos) + noiseCoef * randomNumber;
+    return xPos - dt * gradV2(xPos) + noiseCoef * randomNumber;
 };
 
 
