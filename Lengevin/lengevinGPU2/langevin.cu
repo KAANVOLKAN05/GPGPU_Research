@@ -122,7 +122,7 @@ struct SimParams {
 __device__ void gradV(double x, double y, const SimParams& p,
                       double& dVdx, double& dVdy)
 {
-#if USE_CAMEL == 0
+#if USE_CAMEL == 1
     // Double well: V = -a x^2/2 + b x^4/4 + c y^2/2
     dVdx = -p.a * x + p.b * x * x * x;
     dVdy =  p.c * y;
